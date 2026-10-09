@@ -9,9 +9,43 @@ npm install     # npm 10 hits a resolver bug with vitest's peer deps; use `npx n
 npm start       # http://localhost:4200
 npm test        # unit tests (Vitest)
 npm run build   # static site in dist/word-quizzer/browser
+npm run deploy  # build and publish to GitHub Pages
 ```
 
 The app uses hash URLs (`#/quiz/…`), so the build can be served from any static host as is.
+
+## Deploying to GitHub Pages
+
+The app is published at **https://tomlissen.github.io/wordquiz/**. It is served from the `gh-pages` branch of [tomlissen/wordquiz](https://github.com/tomlissen/wordquiz), which [angular-cli-ghpages](https://github.com/angular-schule/angular-cli-ghpages) maintains; never edit that branch by hand.
+
+### Publishing a new version
+
+```bash
+npm run deploy
+```
+
+This runs three steps:
+
+1. `npm run quizzes` regenerates the list of built-in quizzes from `quizzes/`, and stops if a quiz file is broken.
+2. `ng deploy` makes a production build with base href `/wordquiz/` into `dist/word-quizzer/browser`.
+3. angular-cli-ghpages commits that folder to `gh-pages` ("Auto-generated commit") and pushes it to `origin`. The branch's previous contents are replaced, and a `.nojekyll` and a `404.html` are added.
+
+GitHub Pages usually shows the new version within a minute or two. Reload with Ctrl+Shift+R if you still see the old one.
+
+To check what would be published without pushing anything:
+
+```bash
+npm run deploy -- --dry-run
+```
+
+### Things to keep in mind
+
+- **Use `npm run deploy`, not `ng deploy`.** `ng deploy` builds the app itself and skips the npm scripts, so it would publish whatever list of built-in quizzes happened to be left in `.generated/`: outdated, or missing on a fresh checkout.
+- **Deploying doesn't push your source code.** It only publishes the built site. Push `main` separately with `git push`.
+- **Base href.** The site lives under `/wordquiz/`, so the deploy target in `angular.json` sets `"baseHref": "/wordquiz/"`. Change it if the repository is renamed; with a custom domain it becomes `"/"`. `npm start` and `npm run build` keep using `/`.
+- **Pushing needs SSH access** to `git@github.com:tomlissen/wordquiz.git`, using your local git name and email for the commit.
+- **One-time GitHub setting:** under *Settings → Pages*, the source must be *Deploy from a branch*, with branch `gh-pages` and folder `/ (root)`.
+- **Your quizzes don't move along.** Everything is stored in the browser's `localStorage`, per site, so the deployed app starts empty, separate from `localhost`. To move quizzes, use *Export JSON* on one and import the file on the other.
 
 ## Quiz files
 
@@ -28,7 +62,13 @@ Quizzes are JSON:
 }
 ```
 
-`question` and `answer` may be a string or a list of accepted alternatives. Samples are in `public/samples/`.
+`question` and `answer` may be a string or a list of accepted alternatives.
+
+### Built-in quizzes
+
+Every `.json` file in `quizzes/` is offered under *Choose a built-in quiz* on the start page. To add one, drop a file in that folder and restart `npm start`.
+
+`scripts/build-quiz-index.mjs` bundles the folder into `.generated/built-in-quizzes.json`, which is served as `/built-in-quizzes.json`. It runs automatically before `npm start`, `npm run build`, `npm run watch` and `npm run deploy`. Run it yourself with `npm run quizzes`. A file that isn't valid JSON, or has an item without a question or answer, stops the build with the file name and the problem. See [Deploying](#deploying-to-github-pages) for why deploys must go through `npm run deploy`.
 
 *Export JSON* writes the same format plus your progress: per item `checked` and `stats` (`testCount`, `correctCount`, `errors`, `consecutiveCorrect`), and the `results` history. Importing an export brings the progress back. These fields are optional, and invalid values in them are ignored.
 

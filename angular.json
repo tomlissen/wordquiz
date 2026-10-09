@@ -28,6 +28,11 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "built-in-quizzes.json",
+                "input": ".generated",
+                "output": "/"
               }
             ],
             "styles": [
@@ -72,6 +77,12 @@
         },
         "test": {
           "builder": "@angular/build:unit-test"
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "/wordquiz/"
+          }
         }
       }
     }

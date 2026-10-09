@@ -4,20 +4,16 @@ import { Quiz } from '../../core/model/quiz.model';
 import { QuizParseError } from '../../core/parsers/parse-error';
 import { parseQuizFile } from '../../core/parsers/quiz-file';
 import { QuizStore } from '../../core/services/quiz-store.service';
+import { BuiltInQuizDialog } from './built-in-quiz-dialog';
 
 interface Message {
   kind: 'ok' | 'error';
   text: string;
 }
 
-const SAMPLES = [
-  { file: 'animals-en-nl.json', label: 'animals-en-nl.json' },
-  { file: 'capitals.json', label: 'capitals.json' },
-];
-
 @Component({
   selector: 'app-upload-zone',
-  imports: [TranslatePipe],
+  imports: [TranslatePipe, BuiltInQuizDialog],
   templateUrl: './upload-zone.html',
   styleUrl: './upload-zone.scss',
 })
@@ -28,7 +24,6 @@ export class UploadZone {
   readonly added = output<Quiz>();
   protected readonly dragging = signal(false);
   protected readonly messages = signal<Message[]>([]);
-  protected readonly samples = SAMPLES;
 
   protected onDrop(event: DragEvent): void {
     event.preventDefault();
@@ -46,9 +41,8 @@ export class UploadZone {
     input.value = '';
   }
 
-  protected async loadSample(file: string): Promise<void> {
-    const response = await fetch(`./samples/${file}`);
-    this.importText(await response.text(), file);
+  protected addBuiltIn({ fileName, text }: { fileName: string; text: string }): void {
+    this.importText(text, fileName);
   }
 
   private async readFiles(files: FileList | null | undefined): Promise<void> {

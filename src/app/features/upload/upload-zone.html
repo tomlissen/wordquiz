@@ -13,12 +13,11 @@
       <input #picker type="file" accept=".json,application/json" multiple class="visually-hidden" (change)="onPick(picker)" />
     </label>
   </p>
-  <p class="samples muted">
-    {{ 'upload.samples' | translate }}
-    @for (sample of samples; track sample.file) {
-      <button type="button" class="btn-link" (click)="loadSample(sample.file)">{{ sample.label }}</button>
-    }
+  <p class="built-in muted">
+    {{ 'upload.builtInPrompt' | translate }}
+    <button type="button" class="btn-link" (click)="builtIn.open()">{{ 'upload.builtInButton' | translate }}</button>
   </p>
+  <app-built-in-quiz-dialog #builtIn (picked)="addBuiltIn($event)" />
 </div>
 
 @if (messages().length) {

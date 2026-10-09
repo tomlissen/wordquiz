@@ -21,10 +21,11 @@
     "drop": "Sleep een .json-bestand hierheen",
     "or": "of",
     "choose": "Kies een bestand",
-    "samples": "Geen bestand bij de hand? Probeer een voorbeeld:",
     "added": "\"{{title}}\" toegevoegd met {{count}} vragen.",
     "readError": "{{file}} kon niet gelezen worden: {{message}}",
-    "jsonHelp": "JSON-formaat"
+    "jsonHelp": "JSON-formaat",
+    "builtInPrompt": "Geen bestand bij de hand?",
+    "builtInButton": "Kies een ingebouwde overhoring"
   },
   "errors": {
     "noItems": "het bestand bevat geen vragen met antwoorden.",
@@ -224,5 +225,15 @@
     "skipped": "Overgeslagen regels zonder vraag en antwoord: {{lines}}",
     "add": "Vragen toevoegen ({{count}})",
     "cancel": "Annuleren"
+  },
+  "builtIn": {
+    "title": "Ingebouwde overhoringen",
+    "loading": "Laden…",
+    "count": "{{count}} vragen",
+    "add": "Toevoegen",
+    "added": "Toegevoegd",
+    "close": "Sluiten",
+    "empty": "Er zijn nog geen ingebouwde overhoringen.",
+    "loadError": "De lijst met ingebouwde overhoringen kon niet geladen worden. Start de app met npm start; dat maakt de lijst aan."
   }
 }

@@ -1,0 +1,44 @@
+<dialog #dialog aria-labelledby="built-in-title" (click)="onDialogClick($event)">
+  <div class="content">
+    <h2 id="built-in-title">{{ 'builtIn.title' | translate }}</h2>
+
+    @switch (state()) {
+      @case ('loading') {
+        <p class="muted">{{ 'builtIn.loading' | translate }}</p>
+      }
+      @case ('error') {
+        <p class="problem" role="alert">{{ 'builtIn.loadError' | translate }}</p>
+      }
+      @case ('loaded') {
+        @if (quizzes().length === 0) {
+          <p class="muted">{{ 'builtIn.empty' | translate }}</p>
+        } @else {
+          <ul class="list">
+            @for (quiz of quizzes(); track quiz.id) {
+              <li>
+                <div class="info">
+                  <span class="title">{{ quiz.title }}</span>
+                  <span class="meta muted">
+                    {{ 'builtIn.count' | translate: { count: quiz.count } }}
+                    @if (quiz.questionLanguage && quiz.answerLanguage) {
+                      ({{ quiz.questionLanguage }} → {{ quiz.answerLanguage }})
+                    }
+                  </span>
+                </div>
+                @if (added().has(quiz.id)) {
+                  <span class="added" role="status">✓ {{ 'builtIn.added' | translate }}</span>
+                } @else {
+                  <button type="button" class="btn" (click)="add(quiz)">{{ 'builtIn.add' | translate }}</button>
+                }
+              </li>
+            }
+          </ul>
+        }
+      }
+    }
+
+    <div class="actions">
+      <button type="button" class="btn btn-primary" autofocus (click)="close()">{{ 'builtIn.close' | translate }}</button>
+    </div>
+  </div>
+</dialog>
