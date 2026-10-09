@@ -1,0 +1,1042 @@
+{
+  "title": "VWO1 - Frans Toetsweek 1",
+  "items": [
+    {
+      "question": "les vacances v mv",
+      "answer": "de vakantie",
+      "stats": {
+        "testCount": 18,
+        "correctCount": 13,
+        "errors": 5,
+        "consecutiveCorrect": 3,
+        "lastTested": 1791554861121
+      }
+    },
+    {
+      "question": "le camping",
+      "answer": "de camping",
+      "stats": {
+        "testCount": 13,
+        "correctCount": 12,
+        "errors": 1,
+        "consecutiveCorrect": 12,
+        "lastTested": 1791554863487
+      }
+    },
+    {
+      "question": "il est",
+      "answer": "hij is",
+      "stats": {
+        "testCount": 13,
+        "correctCount": 13,
+        "errors": 0,
+        "consecutiveCorrect": 13,
+        "lastTested": 1791554865043
+      }
+    },
+    {
+      "question": "je cherche",
+      "answer": "ik zoek",
+      "stats": {
+        "testCount": 14,
+        "correctCount": 12,
+        "errors": 2,
+        "consecutiveCorrect": 7,
+        "lastTested": 1791554866755
+      }
+    },
+    {
+      "question": "voilà",
+      "answer": "alsjeblieft (iets geven)",
+      "stats": {
+        "testCount": 7,
+        "correctCount": 6,
+        "errors": 1,
+        "consecutiveCorrect": 1,
+        "lastTested": 1791554875018
+      }
+    },
+    {
+      "question": "je parle",
+      "answer": "ik spreek, ik praat",
+      "stats": {
+        "testCount": 7,
+        "correctCount": 4,
+        "errors": 3,
+        "consecutiveCorrect": 4,
+        "lastTested": 1791554880191
+      }
+    },
+    {
+      "question": "un peu",
+      "answer": "een beetje",
+      "stats": {
+        "testCount": 7,
+        "correctCount": 6,
+        "errors": 1,
+        "consecutiveCorrect": 3,
+        "lastTested": 1791554882121
+      }
+    },
+    {
+      "question": "français",
+      "answer": "Frans",
+      "stats": {
+        "testCount": 5,
+        "correctCount": 1,
+        "errors": 4,
+        "consecutiveCorrect": 1,
+        "lastTested": 1791554884139
+      }
+    },
+    {
+      "question": "je suis",
+      "answer": "ik ben",
+      "stats": {
+        "testCount": 2,
+        "correctCount": 1,
+        "errors": 1,
+        "consecutiveCorrect": 0,
+        "lastTested": 1791554885902
+      }
+    },
+    {
+      "question": "hollandais(e)",
+      "answer": "Nederlands(e)",
+      "stats": {
+        "testCount": 2,
+        "correctCount": 0,
+        "errors": 2,
+        "consecutiveCorrect": 0,
+        "lastTested": 1791554893811
+      }
+    },
+    {
+      "question": "et",
+      "answer": "en",
+      "stats": {
+        "testCount": 2,
+        "correctCount": 2,
+        "errors": 0,
+        "consecutiveCorrect": 2,
+        "lastTested": 1791554896369
+      }
+    },
+    {
+      "question": "oui",
+      "answer": "ja",
+      "stats": {
+        "testCount": 2,
+        "correctCount": 2,
+        "errors": 0,
+        "consecutiveCorrect": 2,
+        "lastTested": 1791554897477
+      }
+    },
+    {
+      "question": "non",
+      "answer": "nee",
+      "stats": {
+        "testCount": 2,
+        "correctCount": 2,
+        "errors": 0,
+        "consecutiveCorrect": 2,
+        "lastTested": 1791554930690
+      }
+    },
+    {
+      "question": "ici",
+      "answer": "hier",
+      "stats": {
+        "testCount": 2,
+        "correctCount": 2,
+        "errors": 0,
+        "consecutiveCorrect": 2,
+        "lastTested": 1791554932092
+      }
+    },
+    {
+      "question": "alors",
+      "answer": "dus",
+      "stats": {
+        "testCount": 2,
+        "correctCount": 2,
+        "errors": 0,
+        "consecutiveCorrect": 2,
+        "lastTested": 1791554933233
+      }
+    },
+    {
+      "question": "pardon",
+      "answer": "sorry",
+      "stats": {
+        "testCount": 2,
+        "correctCount": 2,
+        "errors": 0,
+        "consecutiveCorrect": 2,
+        "lastTested": 1791554934583
+      }
+    },
+    {
+      "question": "merci",
+      "answer": "dankjewel",
+      "stats": {
+        "testCount": 2,
+        "correctCount": 0,
+        "errors": 2,
+        "consecutiveCorrect": 0,
+        "lastTested": 1791554935792
+      }
+    },
+    {
+      "question": "de rien",
+      "answer": "geen dank",
+      "stats": {
+        "testCount": 2,
+        "correctCount": 1,
+        "errors": 1,
+        "consecutiveCorrect": 0,
+        "lastTested": 1791554941655
+      }
+    },
+    {
+      "question": "bonjour",
+      "answer": "hallo",
+      "stats": {
+        "testCount": 2,
+        "correctCount": 2,
+        "errors": 0,
+        "consecutiveCorrect": 2,
+        "lastTested": 1791554944973
+      }
+    },
+    {
+      "question": "au revoir",
+      "answer": "tot ziens",
+      "stats": {
+        "testCount": 2,
+        "correctCount": 1,
+        "errors": 1,
+        "consecutiveCorrect": 0,
+        "lastTested": 1791554947667
+      }
+    },
+    {
+      "question": "Comment tu t'appelles?",
+      "answer": "Hoe heet jij?",
+      "stats": {
+        "testCount": 1,
+        "correctCount": 0,
+        "errors": 1,
+        "consecutiveCorrect": 0,
+        "lastTested": 1791552057088
+      }
+    },
+    {
+      "question": "je m'appele max",
+      "answer": "ik heet max",
+      "stats": {
+        "testCount": 1,
+        "correctCount": 1,
+        "errors": 0,
+        "consecutiveCorrect": 1,
+        "lastTested": 1791552071610
+      }
+    },
+    {
+      "question": "Tu habites où?",
+      "answer": "Waar woon jij?",
+      "stats": {
+        "testCount": 1,
+        "correctCount": 1,
+        "errors": 0,
+        "consecutiveCorrect": 1,
+        "lastTested": 1791552092702
+      }
+    },
+    {
+      "question": "J'habite à Breda, aux Pays-Bas.",
+      "answer": "Ik woon in Breda, in Nederland.",
+      "stats": {
+        "testCount": 1,
+        "correctCount": 1,
+        "errors": 0,
+        "consecutiveCorrect": 1,
+        "lastTested": 1791552112271
+      }
+    },
+    {
+      "question": "l'hôtel m",
+      "answer": "het hotel",
+      "stats": {
+        "testCount": 1,
+        "correctCount": 1,
+        "errors": 0,
+        "consecutiveCorrect": 1,
+        "lastTested": 1791552119683
+      }
+    },
+    {
+      "question": "la piscine",
+      "answer": "het zwembad",
+      "stats": {
+        "testCount": 1,
+        "correctCount": 1,
+        "errors": 0,
+        "consecutiveCorrect": 1,
+        "lastTested": 1791552138166
+      }
+    },
+    {
+      "question": "la fille",
+      "answer": "het meisje",
+      "stats": {
+        "testCount": 1,
+        "correctCount": 1,
+        "errors": 0,
+        "consecutiveCorrect": 1,
+        "lastTested": 1791552142120
+      }
+    },
+    {
+      "question": "le garçon",
+      "answer": "de jongen",
+      "stats": {
+        "testCount": 1,
+        "correctCount": 1,
+        "errors": 0,
+        "consecutiveCorrect": 1,
+        "lastTested": 1791552144561
+      }
+    },
+    {
+      "question": "génial(e)",
+      "answer": "geweldig",
+      "stats": {
+        "testCount": 1,
+        "correctCount": 1,
+        "errors": 0,
+        "consecutiveCorrect": 1,
+        "lastTested": 1791552148404
+      }
+    },
+    {
+      "question": "s'il vous plait",
+      "answer": "alstublieft (iets vragen)",
+      "stats": {
+        "testCount": 1,
+        "correctCount": 0,
+        "errors": 1,
+        "consecutiveCorrect": 0,
+        "lastTested": 1791552152093
+      }
+    },
+    {
+      "question": "avec",
+      "answer": "met",
+      "stats": {
+        "testCount": 1,
+        "correctCount": 1,
+        "errors": 0,
+        "consecutiveCorrect": 1,
+        "lastTested": 1791552157913
+      }
+    },
+    {
+      "question": "aussi",
+      "answer": "ook",
+      "stats": {
+        "testCount": 1,
+        "correctCount": 1,
+        "errors": 0,
+        "consecutiveCorrect": 1,
+        "lastTested": 1791552159494
+      }
+    },
+    {
+      "question": "toujours",
+      "answer": "altijd",
+      "stats": {
+        "testCount": 1,
+        "correctCount": 1,
+        "errors": 0,
+        "consecutiveCorrect": 1,
+        "lastTested": 1791552162092
+      }
+    },
+    {
+      "question": "dans",
+      "answer": "in",
+      "stats": {
+        "testCount": 1,
+        "correctCount": 1,
+        "errors": 0,
+        "consecutiveCorrect": 1,
+        "lastTested": 1791552164080
+      }
+    },
+    {
+      "question": "la famille",
+      "answer": "de familie",
+      "stats": {
+        "testCount": 1,
+        "correctCount": 1,
+        "errors": 0,
+        "consecutiveCorrect": 1,
+        "lastTested": 1791552167148
+      }
+    },
+    {
+      "question": "les parents m mv",
+      "answer": "de ouders",
+      "stats": {
+        "testCount": 1,
+        "correctCount": 1,
+        "errors": 0,
+        "consecutiveCorrect": 1,
+        "lastTested": 1791552170895
+      }
+    },
+    {
+      "question": "il y a",
+      "answer": "er is, er zijn",
+      "stats": {
+        "testCount": 1,
+        "correctCount": 0,
+        "errors": 1,
+        "consecutiveCorrect": 0,
+        "lastTested": 1791552189380
+      }
+    },
+    {
+      "question": "la sœur",
+      "answer": "de zus",
+      "stats": {
+        "testCount": 1,
+        "correctCount": 1,
+        "errors": 0,
+        "consecutiveCorrect": 1,
+        "lastTested": 1791552199211
+      }
+    },
+    {
+      "question": "le frère",
+      "answer": "de broer"
+    },
+    {
+      "question": "j'aime",
+      "answer": "ik vind leuk / houd van"
+    },
+    {
+      "question": "je préfère",
+      "answer": "ik heb liever"
+    },
+    {
+      "question": "c'est",
+      "answer": "dat is, het is"
+    },
+    {
+      "question": "petit(e)",
+      "answer": "klein"
+    },
+    {
+      "question": "grand(e)",
+      "answer": "groot"
+    },
+    {
+      "question": "Bonjour, ça va?",
+      "answer": "Hallo / Hoi, hoe gaat het?"
+    },
+    {
+      "question": "Ça va bien, et toi?",
+      "answer": "Het gaat goed, en met jou?"
+    },
+    {
+      "question": "C'est quoi, Breda?",
+      "answer": "Wat is dat, Breda?"
+    },
+    {
+      "question": "C'est une ville.",
+      "answer": "Dat is een stad."
+    },
+    {
+      "question": "la plage",
+      "answer": "het strand"
+    },
+    {
+      "question": "la mer",
+      "answer": "de zee"
+    },
+    {
+      "question": "le problème",
+      "answer": "het probleem"
+    },
+    {
+      "question": "le message",
+      "answer": "de boodschap"
+    },
+    {
+      "question": "pourquoi",
+      "answer": "waarom"
+    },
+    {
+      "question": "regarde",
+      "answer": "kijk (naar)"
+    },
+    {
+      "question": "aider",
+      "answer": "helpen"
+    },
+    {
+      "question": "on adore",
+      "answer": "we zijn gek op"
+    },
+    {
+      "question": "très",
+      "answer": "erg"
+    },
+    {
+      "question": "trop",
+      "answer": "te, te veel"
+    },
+    {
+      "question": "aujourd'hui",
+      "answer": "vandaag"
+    },
+    {
+      "question": "demain",
+      "answer": "morgen"
+    },
+    {
+      "question": "peut-être",
+      "answer": "misschien"
+    },
+    {
+      "question": "d'accord",
+      "answer": "oké"
+    },
+    {
+      "question": "presque",
+      "answer": "bijna"
+    },
+    {
+      "question": "beaucoup",
+      "answer": "veel"
+    },
+    {
+      "question": "quelque chose",
+      "answer": "iets"
+    },
+    {
+      "question": "beau",
+      "answer": "mooi"
+    },
+    {
+      "question": "super",
+      "answer": "super"
+    },
+    {
+      "question": "bizarre",
+      "answer": "vreemd"
+    },
+    {
+      "question": "Et toi, tu as quel âge?",
+      "answer": "En jij, hoe oud ben jij?"
+    },
+    {
+      "question": "moi j ai douze ans",
+      "answer": "ik ben 12 jaar"
+    },
+    {
+      "question": "Quel est ton numéro de téléphone?",
+      "answer": "Wat is jouw telefoonnummer?"
+    },
+    {
+      "question": "mon numero le 06 12 20 09",
+      "answer": "mijn telefoonnummer is 06 12 20 09"
+    },
+    {
+      "question": "Au revoir!",
+      "answer": "Tot ziens!"
+    },
+    {
+      "question": "À plus!",
+      "answer": "Tot later!"
+    },
+    {
+      "question": "la France",
+      "answer": "Frankrijk"
+    },
+    {
+      "question": "les grands-parents m mv",
+      "answer": "de grootouders"
+    },
+    {
+      "question": "la maison",
+      "answer": "het huis"
+    },
+    {
+      "question": "le père",
+      "answer": "de vader"
+    },
+    {
+      "question": "la mère",
+      "answer": "de moeder"
+    },
+    {
+      "question": "la ville",
+      "answer": "de stad"
+    },
+    {
+      "question": "la photo",
+      "answer": "de foto"
+    },
+    {
+      "question": "aller",
+      "answer": "gaan"
+    },
+    {
+      "question": "visiter",
+      "answer": "bezoeken"
+    },
+    {
+      "question": "dangereux",
+      "answer": "gevaarlijk"
+    },
+    {
+      "question": "sportif",
+      "answer": "sportief"
+    },
+    {
+      "question": "elle déteste",
+      "answer": "ze heeft een hekel aan"
+    },
+    {
+      "question": "le sport",
+      "answer": "de sport"
+    },
+    {
+      "question": "on fait",
+      "answer": "we doen"
+    },
+    {
+      "question": "voir",
+      "answer": "zien"
+    },
+    {
+      "question": "on mange",
+      "answer": "we eten"
+    },
+    {
+      "question": "le fromage",
+      "answer": "de kaas"
+    },
+    {
+      "question": "la crêpe",
+      "answer": "de pannenkoek"
+    },
+    {
+      "question": "autre",
+      "answer": "ander(e)"
+    },
+    {
+      "question": "moi",
+      "answer": "ik (losstaand)"
+    },
+    {
+      "question": "Tu as un frère?",
+      "answer": "Heb jij een broer?"
+    },
+    {
+      "question": "oui j ai un frere.Il s appele romain",
+      "answer": "ja ik heb een broer. hij heet romain"
+    },
+    {
+      "question": "Il a quel âge?",
+      "answer": "Hoe oud is hij?"
+    },
+    {
+      "question": "Il a 15 ans.",
+      "answer": "Hij is 15 jaar."
+    },
+    {
+      "question": "le francias",
+      "answer": "het frans"
+    },
+    {
+      "question": "le prof",
+      "answer": "de docent"
+    },
+    {
+      "question": "l exercice",
+      "answer": "de opdracht"
+    },
+    {
+      "question": "tres bien",
+      "answer": "heel goed"
+    },
+    {
+      "question": "ecoute",
+      "answer": "luister"
+    },
+    {
+      "question": "lis",
+      "answer": "lees"
+    },
+    {
+      "question": "ecris",
+      "answer": "schrijf"
+    },
+    {
+      "question": "parle",
+      "answer": "spreek"
+    },
+    {
+      "question": "prends",
+      "answer": "pak"
+    },
+    {
+      "question": "ouvre",
+      "answer": "open"
+    },
+    {
+      "question": "ferme",
+      "answer": "sluit"
+    },
+    {
+      "question": "cherche",
+      "answer": "zoek"
+    },
+    {
+      "question": "choisis",
+      "answer": "kies"
+    },
+    {
+      "question": "lundi",
+      "answer": "maandag"
+    },
+    {
+      "question": "mardi",
+      "answer": "dinsdag"
+    },
+    {
+      "question": "mercredi",
+      "answer": "woensdag"
+    },
+    {
+      "question": "jeudi",
+      "answer": "donderdag"
+    },
+    {
+      "question": "vendredi",
+      "answer": "vrijdag"
+    },
+    {
+      "question": "samedi",
+      "answer": "zaterdag"
+    },
+    {
+      "question": "dimanche",
+      "answer": "zondag"
+    },
+    {
+      "question": "les devoirs",
+      "answer": "het huiswerk"
+    },
+    {
+      "question": "apprends",
+      "answer": "leer"
+    },
+    {
+      "question": "fais",
+      "answer": "doe"
+    },
+    {
+      "question": "traivalle",
+      "answer": "werk"
+    },
+    {
+      "question": "complete",
+      "answer": "vul in"
+    },
+    {
+      "question": "la page",
+      "answer": "de bladzijde"
+    },
+    {
+      "question": "le mot",
+      "answer": "het woord"
+    },
+    {
+      "question": "hallo hoe gaat het?",
+      "answer": "bonjour ca va?"
+    },
+    {
+      "question": "het gaat goed en met jouw?",
+      "answer": "ca va bien et toi?"
+    },
+    {
+      "question": "hoe heet jij?",
+      "answer": "comment tu t'appelles?"
+    },
+    {
+      "question": "Ik heet Max.",
+      "answer": "Je m'appelle Max."
+    },
+    {
+      "question": "waar woon jij?",
+      "answer": "tu habites ou?"
+    },
+    {
+      "question": "ik woon in breda,in nederland",
+      "answer": "j habite aux pays-bas"
+    },
+    {
+      "question": "wat is dat breda?",
+      "answer": "c est quoi breda"
+    },
+    {
+      "question": "dat is een stad",
+      "answer": "c est un ville"
+    },
+    {
+      "question": "heb je een broer",
+      "answer": "tu as un frere?"
+    },
+    {
+      "question": "Ja, ik heb een broer. Hij heet Romain.",
+      "answer": "Oui, j'ai un frère. Il s'appelle Romain."
+    },
+    {
+      "question": "hoe oud is hij",
+      "answer": "il a quel age"
+    },
+    {
+      "question": "hij is 15 jaar",
+      "answer": "il a 15 ans"
+    },
+    {
+      "question": "en jij hoe oud ben jij?",
+      "answer": "et toi tu as quel age"
+    },
+    {
+      "question": "Ik ben 12 jaar.",
+      "answer": "Moi, j'ai 12 ans."
+    },
+    {
+      "question": "wat is jouw telefoon nummer",
+      "answer": "quel numero de telephone"
+    },
+    {
+      "question": "Mijn telefoonnummer is 06-12 20 09.",
+      "answer": "Mon numéro, c'est le 06-12 20 09."
+    },
+    {
+      "question": "tot ziens",
+      "answer": "au revoir"
+    },
+    {
+      "question": "tot later",
+      "answer": "a plus"
+    },
+    {
+      "question": "0",
+      "answer": "zero"
+    },
+    {
+      "question": "1",
+      "answer": "un"
+    },
+    {
+      "question": "2",
+      "answer": "deux"
+    },
+    {
+      "question": "3",
+      "answer": "trois"
+    },
+    {
+      "question": "4",
+      "answer": "quatre"
+    },
+    {
+      "question": "5",
+      "answer": "cinq"
+    },
+    {
+      "question": "6",
+      "answer": "six"
+    },
+    {
+      "question": "7",
+      "answer": "sept"
+    },
+    {
+      "question": "8",
+      "answer": "huit"
+    },
+    {
+      "question": "9",
+      "answer": "neuf"
+    },
+    {
+      "question": "10",
+      "answer": "dix"
+    },
+    {
+      "question": "11",
+      "answer": "onze"
+    },
+    {
+      "question": "12",
+      "answer": "douze"
+    },
+    {
+      "question": "13",
+      "answer": "treize"
+    },
+    {
+      "question": "14",
+      "answer": "quatroze"
+    },
+    {
+      "question": "15",
+      "answer": "quinze"
+    },
+    {
+      "question": "16",
+      "answer": "seize"
+    },
+    {
+      "question": "17",
+      "answer": "dix-sept"
+    },
+    {
+      "question": "18",
+      "answer": "dix-huit"
+    },
+    {
+      "question": "19",
+      "answer": "dix-neuf"
+    },
+    {
+      "question": "20",
+      "answer": "vingt"
+    },
+    {
+      "question": "DE man",
+      "answer": "le"
+    },
+    {
+      "question": "DE vrouw",
+      "answer": "la"
+    },
+    {
+      "question": "meervoud man",
+      "answer": "les"
+    },
+    {
+      "question": "lidwoord EEN man",
+      "answer": "un"
+    },
+    {
+      "question": "lidwoord EEN vrouw",
+      "answer": "une"
+    },
+    {
+      "question": "ik heb (j')",
+      "answer": "ai"
+    },
+    {
+      "question": "jij hebt(tu)",
+      "answer": "as"
+    },
+    {
+      "question": "hij/zij heeft(il/elle)",
+      "answer": "a"
+    },
+    {
+      "question": "wij hebben(on)",
+      "answer": "a"
+    },
+    {
+      "question": "wij hebben(nous)",
+      "answer": "avons"
+    },
+    {
+      "question": "jullie hebben/u heeft ( vous)",
+      "answer": "avez"
+    },
+    {
+      "question": "zij hebben(ils/elles)",
+      "answer": "ont"
+    },
+    {
+      "question": "HIJ man",
+      "answer": "il"
+    },
+    {
+      "question": "meer namen man",
+      "answer": "ils"
+    },
+    {
+      "question": "Zij vrouw",
+      "answer": "elle"
+    },
+    {
+      "question": "meer namen vrouw",
+      "answer": "elles"
+    }
+  ],
+  "results": [
+    {
+      "date": 1791550845184,
+      "asked": 5,
+      "correct": 4,
+      "bonus": 0,
+      "percent": 80
+    },
+    {
+      "date": 1791550891972,
+      "asked": 3,
+      "correct": 3,
+      "bonus": 0,
+      "percent": 100
+    },
+    {
+      "date": 1791552209137,
+      "asked": 38,
+      "correct": 31,
+      "bonus": 0,
+      "percent": 82
+    },
+    {
+      "date": 1791554719698,
+      "asked": 20,
+      "correct": 14,
+      "bonus": 0,
+      "percent": 70
+    },
+    {
+      "date": 1791554733669,
+      "asked": 1,
+      "correct": 1,
+      "bonus": 0,
+      "percent": 100
+    },
+    {
+      "date": 1791554824795,
+      "asked": 12,
+      "correct": 10,
+      "bonus": 0,
+      "percent": 83
+    },
+    {
+      "date": 1791554856416,
+      "asked": 9,
+      "correct": 8,
+      "bonus": 0,
+      "percent": 89
+    }
+  ]
+}
