@@ -21,10 +21,11 @@
     "drop": "Drop a .json file here",
     "or": "or",
     "choose": "Choose a file",
-    "samples": "No file at hand? Try a sample:",
     "added": "Added \"{{title}}\" with {{count}} items.",
     "readError": "Couldn't read {{file}}: {{message}}",
-    "jsonHelp": "JSON format"
+    "jsonHelp": "JSON format",
+    "builtInPrompt": "No file at hand?",
+    "builtInButton": "Choose a built-in quiz"
   },
   "errors": {
     "noItems": "the file contains no questions with answers.",
@@ -224,5 +225,15 @@
     "skipped": "Skipped lines without a question and an answer: {{lines}}",
     "add": "Add questions ({{count}})",
     "cancel": "Cancel"
+  },
+  "builtIn": {
+    "title": "Built-in quizzes",
+    "loading": "Loading…",
+    "count": "{{count}} questions",
+    "add": "Add",
+    "added": "Added",
+    "close": "Close",
+    "empty": "There are no built-in quizzes yet.",
+    "loadError": "The list of built-in quizzes couldn't be loaded. Start the app with npm start, which generates it."
   }
 }
