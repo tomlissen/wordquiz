@@ -19,7 +19,9 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes, withHashLocation(), withComponentInputBinding()),
     provideHttpClient(),
     provideTranslateService({
-      loader: provideTranslateHttpLoader({ prefix: './i18n/', suffix: '.json' }),
+      // Translation files aren't hashed, so bypass the browser cache; otherwise a stale nl.json
+      // lacks new keys and those texts silently fall back to English.
+      loader: provideTranslateHttpLoader({ prefix: './i18n/', suffix: '.json', enforceLoading: true }),
       fallbackLang: 'en',
     }),
     provideAppInitializer(() => firstValueFrom(inject(LanguageService).init()).catch(() => undefined)),

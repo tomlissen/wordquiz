@@ -66,7 +66,7 @@ Quizzes are JSON:
 
 ### Built-in quizzes
 
-Every `.json` file in `quizzes/` is offered under *Choose a built-in quiz* on the start page. To add one, drop a file in that folder and restart `npm start`.
+Every `.json` file in `quizzes/` is offered under *Choose a built-in quiz* on the start page. To add one, drop a file in that folder and restart `npm start`. An *Export JSON* file from the app works too: its progress (`stats`, `checked`, `results`) is left out of the bundled version, so a built-in quiz always starts fresh. The file itself isn't changed.
 
 `scripts/build-quiz-index.mjs` bundles the folder into `.generated/built-in-quizzes.json`, which is served as `/built-in-quizzes.json`. It runs automatically before `npm start`, `npm run build`, `npm run watch` and `npm run deploy`. Run it yourself with `npm run quizzes`. A file that isn't valid JSON, or has an item without a question or answer, stops the build with the file name and the problem. See [Deploying](#deploying-to-github-pages) for why deploys must go through `npm run deploy`.
 

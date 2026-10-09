@@ -59,7 +59,7 @@ export class BuiltInQuizDialog {
   private async load(): Promise<void> {
     this.state.set('loading');
     try {
-      const response = await fetch(BUILT_IN_QUIZZES_URL);
+      const response = await fetch(BUILT_IN_QUIZZES_URL, { cache: 'no-cache' });
       if (!response.ok) {
         throw new Error(String(response.status));
       }

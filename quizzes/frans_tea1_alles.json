@@ -3,421 +3,155 @@
   "items": [
     {
       "question": "les vacances v mv",
-      "answer": "de vakantie",
-      "stats": {
-        "testCount": 18,
-        "correctCount": 13,
-        "errors": 5,
-        "consecutiveCorrect": 3,
-        "lastTested": 1791554861121
-      }
+      "answer": "de vakantie"
     },
     {
       "question": "le camping",
-      "answer": "de camping",
-      "stats": {
-        "testCount": 13,
-        "correctCount": 12,
-        "errors": 1,
-        "consecutiveCorrect": 12,
-        "lastTested": 1791554863487
-      }
+      "answer": "de camping"
     },
     {
       "question": "il est",
-      "answer": "hij is",
-      "stats": {
-        "testCount": 13,
-        "correctCount": 13,
-        "errors": 0,
-        "consecutiveCorrect": 13,
-        "lastTested": 1791554865043
-      }
+      "answer": "hij is"
     },
     {
       "question": "je cherche",
-      "answer": "ik zoek",
-      "stats": {
-        "testCount": 14,
-        "correctCount": 12,
-        "errors": 2,
-        "consecutiveCorrect": 7,
-        "lastTested": 1791554866755
-      }
+      "answer": "ik zoek"
     },
     {
       "question": "voilà",
-      "answer": "alsjeblieft (iets geven)",
-      "stats": {
-        "testCount": 7,
-        "correctCount": 6,
-        "errors": 1,
-        "consecutiveCorrect": 1,
-        "lastTested": 1791554875018
-      }
+      "answer": "alsjeblieft (iets geven)"
     },
     {
       "question": "je parle",
-      "answer": "ik spreek, ik praat",
-      "stats": {
-        "testCount": 7,
-        "correctCount": 4,
-        "errors": 3,
-        "consecutiveCorrect": 4,
-        "lastTested": 1791554880191
-      }
+      "answer": "ik spreek, ik praat"
     },
     {
       "question": "un peu",
-      "answer": "een beetje",
-      "stats": {
-        "testCount": 7,
-        "correctCount": 6,
-        "errors": 1,
-        "consecutiveCorrect": 3,
-        "lastTested": 1791554882121
-      }
+      "answer": "een beetje"
     },
     {
       "question": "français",
-      "answer": "Frans",
-      "stats": {
-        "testCount": 5,
-        "correctCount": 1,
-        "errors": 4,
-        "consecutiveCorrect": 1,
-        "lastTested": 1791554884139
-      }
+      "answer": "Frans"
     },
     {
       "question": "je suis",
-      "answer": "ik ben",
-      "stats": {
-        "testCount": 2,
-        "correctCount": 1,
-        "errors": 1,
-        "consecutiveCorrect": 0,
-        "lastTested": 1791554885902
-      }
+      "answer": "ik ben"
     },
     {
       "question": "hollandais(e)",
-      "answer": "Nederlands(e)",
-      "stats": {
-        "testCount": 2,
-        "correctCount": 0,
-        "errors": 2,
-        "consecutiveCorrect": 0,
-        "lastTested": 1791554893811
-      }
+      "answer": "Nederlands(e)"
     },
     {
       "question": "et",
-      "answer": "en",
-      "stats": {
-        "testCount": 2,
-        "correctCount": 2,
-        "errors": 0,
-        "consecutiveCorrect": 2,
-        "lastTested": 1791554896369
-      }
+      "answer": "en"
     },
     {
       "question": "oui",
-      "answer": "ja",
-      "stats": {
-        "testCount": 2,
-        "correctCount": 2,
-        "errors": 0,
-        "consecutiveCorrect": 2,
-        "lastTested": 1791554897477
-      }
+      "answer": "ja"
     },
     {
       "question": "non",
-      "answer": "nee",
-      "stats": {
-        "testCount": 2,
-        "correctCount": 2,
-        "errors": 0,
-        "consecutiveCorrect": 2,
-        "lastTested": 1791554930690
-      }
+      "answer": "nee"
     },
     {
       "question": "ici",
-      "answer": "hier",
-      "stats": {
-        "testCount": 2,
-        "correctCount": 2,
-        "errors": 0,
-        "consecutiveCorrect": 2,
-        "lastTested": 1791554932092
-      }
+      "answer": "hier"
     },
     {
       "question": "alors",
-      "answer": "dus",
-      "stats": {
-        "testCount": 2,
-        "correctCount": 2,
-        "errors": 0,
-        "consecutiveCorrect": 2,
-        "lastTested": 1791554933233
-      }
+      "answer": "dus"
     },
     {
       "question": "pardon",
-      "answer": "sorry",
-      "stats": {
-        "testCount": 2,
-        "correctCount": 2,
-        "errors": 0,
-        "consecutiveCorrect": 2,
-        "lastTested": 1791554934583
-      }
+      "answer": "sorry"
     },
     {
       "question": "merci",
-      "answer": "dankjewel",
-      "stats": {
-        "testCount": 2,
-        "correctCount": 0,
-        "errors": 2,
-        "consecutiveCorrect": 0,
-        "lastTested": 1791554935792
-      }
+      "answer": "dankjewel"
     },
     {
       "question": "de rien",
-      "answer": "geen dank",
-      "stats": {
-        "testCount": 2,
-        "correctCount": 1,
-        "errors": 1,
-        "consecutiveCorrect": 0,
-        "lastTested": 1791554941655
-      }
+      "answer": "geen dank"
     },
     {
       "question": "bonjour",
-      "answer": "hallo",
-      "stats": {
-        "testCount": 2,
-        "correctCount": 2,
-        "errors": 0,
-        "consecutiveCorrect": 2,
-        "lastTested": 1791554944973
-      }
+      "answer": "hallo"
     },
     {
       "question": "au revoir",
-      "answer": "tot ziens",
-      "stats": {
-        "testCount": 2,
-        "correctCount": 1,
-        "errors": 1,
-        "consecutiveCorrect": 0,
-        "lastTested": 1791554947667
-      }
+      "answer": "tot ziens"
     },
     {
       "question": "Comment tu t'appelles?",
-      "answer": "Hoe heet jij?",
-      "stats": {
-        "testCount": 1,
-        "correctCount": 0,
-        "errors": 1,
-        "consecutiveCorrect": 0,
-        "lastTested": 1791552057088
-      }
+      "answer": "Hoe heet jij?"
     },
     {
       "question": "je m'appele max",
-      "answer": "ik heet max",
-      "stats": {
-        "testCount": 1,
-        "correctCount": 1,
-        "errors": 0,
-        "consecutiveCorrect": 1,
-        "lastTested": 1791552071610
-      }
+      "answer": "ik heet max"
     },
     {
       "question": "Tu habites où?",
-      "answer": "Waar woon jij?",
-      "stats": {
-        "testCount": 1,
-        "correctCount": 1,
-        "errors": 0,
-        "consecutiveCorrect": 1,
-        "lastTested": 1791552092702
-      }
+      "answer": "Waar woon jij?"
     },
     {
       "question": "J'habite à Breda, aux Pays-Bas.",
-      "answer": "Ik woon in Breda, in Nederland.",
-      "stats": {
-        "testCount": 1,
-        "correctCount": 1,
-        "errors": 0,
-        "consecutiveCorrect": 1,
-        "lastTested": 1791552112271
-      }
+      "answer": "Ik woon in Breda, in Nederland."
     },
     {
       "question": "l'hôtel m",
-      "answer": "het hotel",
-      "stats": {
-        "testCount": 1,
-        "correctCount": 1,
-        "errors": 0,
-        "consecutiveCorrect": 1,
-        "lastTested": 1791552119683
-      }
+      "answer": "het hotel"
     },
     {
       "question": "la piscine",
-      "answer": "het zwembad",
-      "stats": {
-        "testCount": 1,
-        "correctCount": 1,
-        "errors": 0,
-        "consecutiveCorrect": 1,
-        "lastTested": 1791552138166
-      }
+      "answer": "het zwembad"
     },
     {
       "question": "la fille",
-      "answer": "het meisje",
-      "stats": {
-        "testCount": 1,
-        "correctCount": 1,
-        "errors": 0,
-        "consecutiveCorrect": 1,
-        "lastTested": 1791552142120
-      }
+      "answer": "het meisje"
     },
     {
       "question": "le garçon",
-      "answer": "de jongen",
-      "stats": {
-        "testCount": 1,
-        "correctCount": 1,
-        "errors": 0,
-        "consecutiveCorrect": 1,
-        "lastTested": 1791552144561
-      }
+      "answer": "de jongen"
     },
     {
       "question": "génial(e)",
-      "answer": "geweldig",
-      "stats": {
-        "testCount": 1,
-        "correctCount": 1,
-        "errors": 0,
-        "consecutiveCorrect": 1,
-        "lastTested": 1791552148404
-      }
+      "answer": "geweldig"
     },
     {
       "question": "s'il vous plait",
-      "answer": "alstublieft (iets vragen)",
-      "stats": {
-        "testCount": 1,
-        "correctCount": 0,
-        "errors": 1,
-        "consecutiveCorrect": 0,
-        "lastTested": 1791552152093
-      }
+      "answer": "alstublieft (iets vragen)"
     },
     {
       "question": "avec",
-      "answer": "met",
-      "stats": {
-        "testCount": 1,
-        "correctCount": 1,
-        "errors": 0,
-        "consecutiveCorrect": 1,
-        "lastTested": 1791552157913
-      }
+      "answer": "met"
     },
     {
       "question": "aussi",
-      "answer": "ook",
-      "stats": {
-        "testCount": 1,
-        "correctCount": 1,
-        "errors": 0,
-        "consecutiveCorrect": 1,
-        "lastTested": 1791552159494
-      }
+      "answer": "ook"
     },
     {
       "question": "toujours",
-      "answer": "altijd",
-      "stats": {
-        "testCount": 1,
-        "correctCount": 1,
-        "errors": 0,
-        "consecutiveCorrect": 1,
-        "lastTested": 1791552162092
-      }
+      "answer": "altijd"
     },
     {
       "question": "dans",
-      "answer": "in",
-      "stats": {
-        "testCount": 1,
-        "correctCount": 1,
-        "errors": 0,
-        "consecutiveCorrect": 1,
-        "lastTested": 1791552164080
-      }
+      "answer": "in"
     },
     {
       "question": "la famille",
-      "answer": "de familie",
-      "stats": {
-        "testCount": 1,
-        "correctCount": 1,
-        "errors": 0,
-        "consecutiveCorrect": 1,
-        "lastTested": 1791552167148
-      }
+      "answer": "de familie"
     },
     {
       "question": "les parents m mv",
-      "answer": "de ouders",
-      "stats": {
-        "testCount": 1,
-        "correctCount": 1,
-        "errors": 0,
-        "consecutiveCorrect": 1,
-        "lastTested": 1791552170895
-      }
+      "answer": "de ouders"
     },
     {
       "question": "il y a",
-      "answer": "er is, er zijn",
-      "stats": {
-        "testCount": 1,
-        "correctCount": 0,
-        "errors": 1,
-        "consecutiveCorrect": 0,
-        "lastTested": 1791552189380
-      }
+      "answer": "er is, er zijn"
     },
     {
       "question": "la sœur",
-      "answer": "de zus",
-      "stats": {
-        "testCount": 1,
-        "correctCount": 1,
-        "errors": 0,
-        "consecutiveCorrect": 1,
-        "lastTested": 1791552199211
-      }
+      "answer": "de zus"
     },
     {
       "question": "le frère",
@@ -986,57 +720,6 @@
     {
       "question": "meer namen vrouw",
       "answer": "elles"
-    }
-  ],
-  "results": [
-    {
-      "date": 1791550845184,
-      "asked": 5,
-      "correct": 4,
-      "bonus": 0,
-      "percent": 80
-    },
-    {
-      "date": 1791550891972,
-      "asked": 3,
-      "correct": 3,
-      "bonus": 0,
-      "percent": 100
-    },
-    {
-      "date": 1791552209137,
-      "asked": 38,
-      "correct": 31,
-      "bonus": 0,
-      "percent": 82
-    },
-    {
-      "date": 1791554719698,
-      "asked": 20,
-      "correct": 14,
-      "bonus": 0,
-      "percent": 70
-    },
-    {
-      "date": 1791554733669,
-      "asked": 1,
-      "correct": 1,
-      "bonus": 0,
-      "percent": 100
-    },
-    {
-      "date": 1791554824795,
-      "asked": 12,
-      "correct": 10,
-      "bonus": 0,
-      "percent": 83
-    },
-    {
-      "date": 1791554856416,
-      "asked": 9,
-      "correct": 8,
-      "bonus": 0,
-      "percent": 89
     }
   ]
 }
