@@ -1,0 +1,42 @@
+<section class="results">
+  <h2>{{ 'results.title' | translate }}</h2>
+
+  @if (!scored()) {
+    <p>{{ 'results.presentationDone' | translate }}</p>
+  } @else if (score().asked === 0) {
+    <p>{{ 'results.nothingAsked' | translate }}</p>
+  } @else {
+    <p class="grade">{{ 'results.percent' | translate: { percent: percent() } }}</p>
+    <p>{{ 'results.summary' | translate: { correct: score().correct, asked: score().asked, bonus: score().bonus } }}</p>
+    <p class="muted small">{{ 'results.bonusRule' | translate }}</p>
+  }
+
+  <div class="actions">
+    @if (mistakes().length) {
+      <button type="button" class="btn btn-primary" appAutofocus (click)="practise.emit()">
+        {{ 'results.practiseMistakes' | translate }}
+      </button>
+      <button type="button" class="btn" (click)="again.emit()">{{ 'results.again' | translate }}</button>
+    } @else {
+      <button type="button" class="btn btn-primary" appAutofocus (click)="again.emit()">
+        {{ 'results.again' | translate }}
+      </button>
+    }
+    <a routerLink="/" class="btn btn-quiet">{{ 'results.toLibrary' | translate }}</a>
+  </div>
+
+  @if (mistakes().length) {
+    <h3>{{ 'results.mistakes' | translate }}</h3>
+    <ul class="mistakes">
+      @for (card of mistakes(); track card.key) {
+        <li>
+          <span>{{ card.prompts[0] }}</span>
+          <span class="answer">{{ card.accepted.join(' / ') }}</span>
+        </li>
+      }
+    </ul>
+  }
+
+  <h3>{{ 'results.history' | translate }}</h3>
+  <app-history-chart [results]="history()" />
+</section>

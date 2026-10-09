@@ -1,0 +1,41 @@
+<app-upload-zone />
+
+<section class="library">
+  <div class="library-head">
+    <h1>{{ 'library.title' | translate }}</h1>
+    <button type="button" class="btn" (click)="newQuiz()">{{ 'library.newQuiz' | translate }}</button>
+  </div>
+  @if (store.quizzes().length === 0) {
+    <p class="muted">{{ 'library.empty' | translate }}</p>
+  } @else {
+    <ul class="quiz-list">
+      @for (quiz of store.quizzes(); track quiz.id) {
+        <li class="quiz">
+          <div class="quiz-info">
+            <a class="quiz-title" [routerLink]="['/quiz', quiz.id]">{{ quiz.title }}</a>
+            @let p = progress(quiz.items);
+            <span class="muted">
+              {{ 'library.knownSummary' | translate: p }}<app-info-tip
+                [label]="'library.knownInfoLabel' | translate"
+                [text]="'library.knownInfo' | translate"
+              />
+            </span>
+            @if (p.total > 0) {
+              <span class="known-bar" aria-hidden="true">
+                <span class="known-fill" [style.width.%]="(p.known / p.total) * 100"></span>
+              </span>
+            }
+          </div>
+          <div class="quiz-actions">
+            <a class="btn btn-primary" [routerLink]="['/quiz', quiz.id, 'test']">{{ 'library.test' | translate }}</a>
+            <a class="btn" [routerLink]="['/quiz', quiz.id]">{{ 'library.viewItems' | translate }}</a>
+            <button type="button" class="btn btn-quiet" (click)="export(quiz)">{{ 'library.export' | translate }}</button>
+            <button type="button" class="btn btn-quiet btn-danger" (click)="remove(quiz)">
+              {{ 'library.delete' | translate }}
+            </button>
+          </div>
+        </li>
+      }
+    </ul>
+  }
+</section>

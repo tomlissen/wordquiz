@@ -1,0 +1,127 @@
+.topline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 1rem;
+  margin-bottom: 0.75rem;
+
+  h1 {
+    margin: 0;
+    overflow-wrap: anywhere;
+  }
+}
+
+.back {
+  margin-left: -0.5rem;
+}
+
+.note {
+  margin: 0.75rem 0 0;
+  font-size: 0.9rem;
+}
+
+.empty {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1rem;
+}
+
+// The exercise-book sheet: ruled lines, red margin, question written on the line.
+.sheet {
+  position: relative;
+  display: grid;
+  grid-template-columns: 3.5rem 1fr;
+  margin-top: 1.5rem;
+  min-height: calc(var(--line) * 9);
+  background-color: var(--sheet);
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent calc(var(--line) - 1px),
+    var(--rule) calc(var(--line) - 1px),
+    var(--rule) var(--line)
+  );
+  background-position: 0 calc(var(--line) * 1.5);
+  border-radius: 4px;
+  box-shadow:
+    0 1px 0 var(--rule),
+    0 0 0 1px #d6e1ef;
+}
+
+.margin {
+  border-right: 2px solid var(--margin-line);
+}
+
+.sheet-body {
+  padding: calc(var(--line) * 0.75) clamp(1rem, 4vw, 2.5rem) var(--line) 1.25rem;
+  min-width: 0;
+}
+
+.last-correct {
+  margin: 0 0 0.5rem;
+  color: var(--green);
+  font-size: 0.95rem;
+
+  .tick {
+    font-weight: 800;
+  }
+}
+
+.side {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  line-height: var(--line);
+}
+
+.prompt {
+  margin: 0;
+  font-size: clamp(1.75rem, 5vw, 2.75rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  overflow-wrap: anywhere;
+  padding-bottom: 0.5rem;
+}
+
+.prompt-alt {
+  margin: 0;
+}
+
+.status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1.25rem;
+  margin-top: 0.75rem;
+}
+
+.progress {
+  font-size: 0.9rem;
+}
+
+.score {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: right;
+}
+
+.score-percent {
+  font-size: 2rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  order: 2;
+}
+
+.score-detail {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  line-height: 1.35;
+}
+
+@media (max-width: 36rem) {
+  .sheet {
+    grid-template-columns: 1.25rem 1fr;
+  }
+}

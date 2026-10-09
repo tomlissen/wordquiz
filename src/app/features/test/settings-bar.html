@@ -1,0 +1,132 @@
+@let s = settings();
+@let q = questionLabel() ?? ('settings.questionSide' | translate);
+@let a = answerLabel() ?? ('settings.answerSide' | translate);
+
+<details class="settings" #settingsDetails>
+<summary>
+  <span class="settings-title">{{ 'settings.title' | translate }}</span>
+  <span class="settings-summary">
+    {{ 'settings.selectionOptions.' + s.selection | translate }},
+    {{ 'settings.directionOptions.' + s.direction | translate: { q, a } }},
+    {{ 'settings.orderOptions.' + s.order | translate }},
+    {{ 'settings.testTypeOptions.' + s.testType | translate }}@if (s.testType !== 'presentation') {,
+      {{ 'settings.repetitionOptions.' + s.repetition | translate }}
+    }@if (activeMatchCount() > 0) {,
+      {{ 'settings.matchCount' | translate: { count: activeMatchCount() } }}
+    }@if (s.reward.enabled) {,
+      {{ 'settings.rewardToggle' | translate }}
+    }
+  </span>
+</summary>
+
+<div class="bar">
+  <div class="field">
+    <label for="setting-selection">{{ 'settings.selection' | translate }}</label>
+    <span class="inline">
+      <select id="setting-selection" [value]="s.selection" (change)="set('selection', $any(value($event)))">
+        @for (o of selections; track o) {
+          <option [value]="o" [selected]="o === s.selection">{{ 'settings.selectionOptions.' + o | translate }}</option>
+        }
+      </select>
+      @if (needsCount()) {
+        <input
+          type="number"
+          min="1"
+          class="count"
+          [value]="s.selectionCount"
+          [attr.aria-label]="'settings.count' | translate"
+          (change)="setCount(value($event))"
+        />
+      }
+    </span>
+  </div>
+
+  <div class="field">
+    <label for="setting-direction">{{ 'settings.direction' | translate }}</label>
+    <select id="setting-direction" (change)="set('direction', $any(value($event)))">
+      @for (o of directions; track o) {
+        <option [value]="o" [selected]="o === s.direction">
+          {{ 'settings.directionOptions.' + o | translate: { q, a } }}
+        </option>
+      }
+    </select>
+  </div>
+
+  <div class="field">
+    <label for="setting-order">{{ 'settings.order' | translate }}</label>
+    <select id="setting-order" (change)="set('order', $any(value($event)))">
+      @for (o of orders; track o) {
+        <option [value]="o" [selected]="o === s.order">{{ 'settings.orderOptions.' + o | translate }}</option>
+      }
+    </select>
+  </div>
+
+  <div class="field">
+    <label for="setting-testType">{{ 'settings.testType' | translate }}</label>
+    <select id="setting-testType" (change)="set('testType', $any(value($event)))">
+      @for (o of testTypes; track o) {
+        <option [value]="o" [selected]="o === s.testType">{{ 'settings.testTypeOptions.' + o | translate }}</option>
+      }
+    </select>
+  </div>
+
+  <div class="field">
+    <label for="setting-repetition">{{ 'settings.repetition' | translate }}</label>
+    <select id="setting-repetition" (change)="set('repetition', $any(value($event)))" [disabled]="s.testType === 'presentation'">
+      @for (o of repetitions; track o) {
+        <option [value]="o" [selected]="o === s.repetition">{{ 'settings.repetitionOptions.' + o | translate }}</option>
+      }
+    </select>
+  </div>
+
+  <div class="field match">
+    <span id="match-label">{{ 'settings.match' | translate }}</span>
+    <details #matchDetails>
+      <summary aria-describedby="match-label">
+        @let active = activeMatchCount();
+        {{ active === 0 ? ('settings.matchExact' | translate) : ('settings.matchCount' | translate: { count: active }) }}
+      </summary>
+      <div class="match-options">
+        @for (key of matchKeys; track key) {
+          <label>
+            <input type="checkbox" [checked]="s.match[key]" (change)="setMatch(key, $any($event.target).checked)" />
+            {{ 'settings.matchOptions.' + key | translate }}
+          </label>
+        }
+      </div>
+    </details>
+  </div>
+
+  <div class="field reward">
+    <span>{{ 'settings.reward' | translate }}</span>
+    <span class="inline">
+      <label class="toggle">
+        <input type="checkbox" [checked]="s.reward.enabled" (change)="setRewardEnabled($any($event.target).checked)" />
+        {{ 'settings.rewardToggle' | translate }}
+      </label>
+      @if (s.reward.enabled) {
+        <input
+          type="number"
+          class="count"
+          [min]="rewardMin"
+          [max]="rewardMax"
+          [value]="s.reward.seconds"
+          [attr.aria-label]="'settings.rewardSeconds' | translate"
+          (change)="setRewardSeconds(value($event))"
+        />
+        <span class="unit">{{ 'settings.secondsUnit' | translate }}</span>
+      }
+    </span>
+  </div>
+</div>
+
+<p class="help muted">
+  {{ 'settings.testTypeHelp.' + s.testType | translate }}
+  @if (s.testType !== 'presentation') {
+    {{ 'settings.repetitionHelp.' + s.repetition | translate }}
+    @if (s.reward.enabled) {
+      {{ 'settings.rewardHelp' | translate: { every: rewardEvery, seconds: s.reward.seconds } }}
+    }
+  }
+</p>
+</details>

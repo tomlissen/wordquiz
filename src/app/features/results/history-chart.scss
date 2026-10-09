@@ -1,0 +1,98 @@
+figure {
+  margin: 0;
+}
+
+.plot {
+  position: relative;
+}
+
+svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.grid {
+  stroke: var(--rule);
+  stroke-width: 1;
+}
+
+.axis {
+  fill: var(--ink-soft);
+  font-size: 11px;
+}
+
+.mark {
+  fill: var(--ink);
+  transition: opacity 120ms;
+
+  &.dim {
+    opacity: 0.35;
+  }
+}
+
+.hit {
+  fill: transparent;
+}
+
+.bar {
+  cursor: default;
+  outline: none;
+
+  &:focus-visible .mark {
+    stroke: var(--focus);
+    stroke-width: 2;
+  }
+}
+
+.label {
+  fill: var(--ink);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.tooltip {
+  position: absolute;
+  transform: translate(-50%, calc(-100% - 10px));
+  display: grid;
+  gap: 0.1rem;
+  min-width: 9rem;
+  padding: 0.45rem 0.65rem;
+  background: var(--sheet);
+  border: 1.5px solid var(--ink);
+  border-radius: 6px;
+  font-size: 0.85rem;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+figcaption {
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+details {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+
+  summary {
+    cursor: pointer;
+    color: var(--ink-soft);
+  }
+
+  table {
+    margin-top: 0.5rem;
+    border-collapse: collapse;
+  }
+
+  td {
+    padding: 0.2rem 1rem 0.2rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+}

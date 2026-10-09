@@ -1,0 +1,45 @@
+<section class="break" [attr.aria-label]="'game.title' | translate">
+  <header class="hud">
+    <h2>{{ 'game.title' | translate }}</h2>
+    <span class="stat">{{ 'game.timeLeft' | translate: { seconds: timeLeft() } }}</span>
+    <span class="stat">{{ 'game.score' | translate: { score: score() } }}</span>
+    @if (phase() !== 'over') {
+      <button type="button" class="btn btn-quiet skip" (click)="done()">{{ 'game.skip' | translate }}</button>
+    }
+  </header>
+
+  <div class="stage">
+    <canvas
+      #canvas
+      tabindex="0"
+      appAutofocus
+      role="img"
+      [attr.aria-label]="'game.canvasLabel' | translate"
+      (pointerdown)="onPointer($event)"
+    ></canvas>
+
+    @switch (phase()) {
+      @case ('ready') {
+        <p class="overlay ready">{{ 'game.ready' | translate }}</p>
+      }
+      @case ('over') {
+        <div class="overlay over" role="status">
+          <p class="verdict" [class.crashed]="endReason() === 'crashed'">
+            {{ (endReason() === 'crashed' ? 'game.crashed' : 'game.timeUp') | translate }}
+          </p>
+          <p class="final">{{ 'game.score' | translate: { score: score() } }}</p>
+          <p class="best muted">
+            @if (newBest()) {
+              {{ 'game.newBest' | translate }}
+            } @else {
+              {{ 'game.best' | translate: { best: best() } }}
+            }
+          </p>
+          <button type="button" class="btn btn-primary" appAutofocus (click)="done()">
+            {{ 'game.back' | translate }}
+          </button>
+        </div>
+      }
+    }
+  </div>
+</section>

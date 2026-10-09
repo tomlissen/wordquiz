@@ -1,0 +1,154 @@
+<a routerLink="/" class="btn btn-quiet back">{{ 'editor.back' | translate }}</a>
+
+@if (quiz(); as quiz) {
+  <div class="head">
+    <label class="title-field">
+      <span class="visually-hidden">{{ 'editor.title' | translate }}</span>
+      <input
+        id="quiz-title"
+        type="text"
+        class="title-input"
+        [value]="quiz.title"
+        (change)="saveTitle($any($event.target))"
+        (keydown.enter)="$any($event.target).blur()"
+      />
+    </label>
+    <a class="btn btn-primary" [routerLink]="['/quiz', quiz.id, 'test']">{{ 'editor.startTest' | translate }}</a>
+  </div>
+
+  <div class="labels">
+    <label>
+      <span>{{ 'editor.questionLabel' | translate }}</span>
+      <input
+        type="text"
+        [value]="quiz.questionLanguage ?? ''"
+        [placeholder]="'editor.questionLabelHint' | translate"
+        (change)="saveLabel('questionLanguage', $any($event.target).value)"
+      />
+    </label>
+    <label>
+      <span>{{ 'editor.answerLabel' | translate }}</span>
+      <input
+        type="text"
+        [value]="quiz.answerLanguage ?? ''"
+        [placeholder]="'editor.answerLabelHint' | translate"
+        (change)="saveLabel('answerLanguage', $any($event.target).value)"
+      />
+    </label>
+  </div>
+
+  <div class="toolbar">
+    <label class="filter">
+      <span>{{ 'editor.filter' | translate }}</span>
+      <input
+        type="search"
+        [value]="filter()"
+        (input)="filter.set($any($event.target).value)"
+        [placeholder]="'editor.filterHint' | translate"
+      />
+    </label>
+    <button type="button" class="btn" (click)="setVisible(true)">{{ 'editor.checkVisible' | translate }}</button>
+    <button type="button" class="btn" (click)="setVisible(false)">{{ 'editor.uncheckVisible' | translate }}</button>
+    <span class="muted">{{ 'editor.checkedCount' | translate: { checked: checkedCount(), total: quiz.items.length } }}</span>
+  </div>
+
+  @let questionHead = quiz.questionLanguage ?? ('editor.question' | translate);
+  @let answerHead = quiz.answerLanguage ?? ('editor.answer' | translate);
+
+  <table class="items">
+    <thead>
+      <tr>
+        <th scope="col"><span class="visually-hidden">{{ 'editor.checked' | translate }}</span></th>
+        <th scope="col">{{ questionHead }}</th>
+        <th scope="col">{{ answerHead }}</th>
+        <th scope="col" class="remark-col">
+          {{ 'editor.remark' | translate }}
+          <app-info-tip [label]="'editor.remarkInfoLabel' | translate" [text]="'editor.remarkInfo' | translate" />
+        </th>
+        <th scope="col" class="num">{{ 'editor.stats' | translate }}</th>
+        <th scope="col"><span class="visually-hidden">{{ 'editor.deleteItem' | translate }}</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (item of visible(); track item.id; let n = $index) {
+        <tr [class.checked]="item.checked" [class.incomplete]="!isComplete(item)">
+          <td>
+            <input
+              type="checkbox"
+              [checked]="item.checked"
+              (change)="toggle(item)"
+              [attr.aria-label]="'editor.checkRow' | translate: { n: n + 1 }"
+            />
+          </td>
+          <td>
+            <input
+              type="text"
+              class="cell"
+              [id]="'q-' + item.id"
+              [value]="join(item.questions)"
+              [attr.aria-label]="questionHead + ' ' + (n + 1)"
+              [attr.aria-invalid]="!item.questions.length"
+              (change)="saveAlternatives(item, 'questions', $any($event.target).value)"
+              (keydown.enter)="onEnter($event, item, 'questions')"
+            />
+          </td>
+          <td>
+            <input
+              type="text"
+              class="cell"
+              [id]="'a-' + item.id"
+              [value]="join(item.answers)"
+              [attr.aria-label]="answerHead + ' ' + (n + 1)"
+              [attr.aria-invalid]="!item.answers.length"
+              (change)="saveAlternatives(item, 'answers', $any($event.target).value)"
+              (keydown.enter)="onEnter($event, item, 'answers')"
+            />
+          </td>
+          <td class="remark-col">
+            <input
+              type="text"
+              class="cell remark"
+              [value]="item.remark ?? ''"
+              [attr.aria-label]="('editor.remark' | translate) + ' ' + (n + 1)"
+              (change)="saveRemark(item, $any($event.target).value)"
+            />
+          </td>
+          <td class="num">
+            {{ item.stats.testCount }} / {{ item.stats.errors }}
+            @if (item.stats.consecutiveCorrect >= knownStreak) {
+              <span class="known">{{ 'editor.known' | translate }}</span>
+            }
+          </td>
+          <td>
+            <button
+              type="button"
+              class="delete"
+              [attr.aria-label]="'editor.deleteRow' | translate: { n: n + 1 }"
+              [title]="'editor.deleteItem' | translate"
+              (click)="removeItem(item)"
+            >
+              ×
+            </button>
+          </td>
+        </tr>
+      }
+    </tbody>
+  </table>
+
+  <div class="after-table">
+    <button type="button" class="btn" (click)="addItem()">{{ 'editor.addItem' | translate }}</button>
+    <button type="button" class="btn" (click)="bulkDialog.open()">{{ 'editor.bulkAdd' | translate }}</button>
+    <p class="muted hint">{{ 'editor.entryHint' | translate }}</p>
+  </div>
+  @if (bulkAdded(); as count) {
+    <p class="added-note" role="status">{{ 'editor.bulkAdded' | translate: { count } }}</p>
+  }
+  <app-bulk-add-dialog #bulkDialog (added)="addMany($event)" />
+  @if (incompleteCount() > 0) {
+    <p class="incomplete-note" role="status">{{ 'editor.incomplete' | translate: { count: incompleteCount() } }}</p>
+  }
+
+  <button type="button" class="btn btn-quiet btn-danger reset" (click)="resetStats()">
+    {{ 'editor.resetStats' | translate }}
+  </button>
+}

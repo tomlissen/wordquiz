@@ -1,0 +1,46 @@
+<dialog #dialog aria-labelledby="bulk-title" (click)="onDialogClick($event)">
+  <form method="dialog" class="content" (submit)="$event.preventDefault(); add()">
+    <h2 id="bulk-title">{{ 'bulk.title' | translate }}</h2>
+    <p class="help" id="bulk-help">{{ 'bulk.help' | translate }}</p>
+
+    <label class="visually-hidden" for="bulk-text">{{ 'bulk.textLabel' | translate }}</label>
+    <textarea
+      id="bulk-text"
+      rows="8"
+      autofocus
+      spellcheck="false"
+      aria-describedby="bulk-help"
+      [placeholder]="'bulk.placeholder' | translate"
+      [value]="text()"
+      (input)="text.set($any($event.target).value)"
+    ></textarea>
+
+    @let result = parsed();
+    @if (result.items.length) {
+      <p class="summary">{{ 'bulk.ready' | translate: { count: result.items.length } }}</p>
+      <div class="preview">
+        <table>
+          <tbody>
+            @for (item of result.items; track $index) {
+              <tr>
+                <td>{{ join(item.questions) }}</td>
+                <td>{{ join(item.answers) }}</td>
+                <td class="remark">{{ item.remark }}</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+    }
+    @if (result.skipped.length) {
+      <p class="skipped" role="status">{{ 'bulk.skipped' | translate: { lines: result.skipped.join(', ') } }}</p>
+    }
+
+    <div class="actions">
+      <button type="submit" class="btn btn-primary" [disabled]="!result.items.length">
+        {{ 'bulk.add' | translate: { count: result.items.length } }}
+      </button>
+      <button type="button" class="btn btn-quiet" (click)="close()">{{ 'bulk.cancel' | translate }}</button>
+    </div>
+  </form>
+</dialog>

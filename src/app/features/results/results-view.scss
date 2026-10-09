@@ -1,0 +1,48 @@
+.results {
+  margin-top: 1.5rem;
+  max-width: 40rem;
+
+  h3 {
+    margin-top: 2rem;
+  }
+}
+
+.grade {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1;
+  margin: 0.25rem 0 0.75rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.small {
+  font-size: 0.85rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.mistakes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--rule);
+
+  li {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.25rem 1rem;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .answer {
+    font-family: var(--mono);
+    color: var(--red-pen);
+  }
+}

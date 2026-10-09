@@ -1,0 +1,17 @@
+{
+  "title": "European capitals",
+  "questionLanguage": "Country",
+  "answerLanguage": "Capital",
+  "items": [
+    { "question": "Netherlands", "answer": "Amsterdam" },
+    { "question": "Belgium", "answer": ["Brussels", "Brussel", "Bruxelles"] },
+    { "question": "France", "answer": "Paris" },
+    { "question": "Germany", "answer": "Berlin" },
+    { "question": "Spain", "answer": "Madrid" },
+    { "question": "Portugal", "answer": "Lisbon", "remark": "Lisboa in Portuguese" },
+    { "question": "Italy", "answer": "Rome" },
+    { "question": "Austria", "answer": "Vienna" },
+    { "question": "Czech Republic", "answer": "Prague" },
+    { "question": "Iceland", "answer": "Reykjavík" }
+  ]
+}

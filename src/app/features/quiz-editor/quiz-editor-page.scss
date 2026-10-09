@@ -1,0 +1,211 @@
+.back {
+  margin: 0 0 0.75rem -0.5rem;
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.title-field {
+  flex: 1 1 18rem;
+  min-width: 0;
+}
+
+// The title reads as a heading and becomes a field on hover/focus.
+.title-input {
+  width: 100%;
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  padding: 0.1rem 0.4rem;
+  margin-left: -0.4rem;
+  border-color: transparent;
+  background: transparent;
+
+  &:hover {
+    border-color: #9fb2cf;
+  }
+
+  &:focus-visible {
+    outline: none;
+    border-color: var(--blue);
+    background: var(--sheet);
+  }
+}
+
+.labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  margin-bottom: 1.25rem;
+
+  label {
+    display: grid;
+    gap: 0.2rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  input {
+    font-weight: 400;
+    width: 14rem;
+  }
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+
+  input {
+    width: min(22rem, 70vw);
+  }
+}
+
+.items {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--sheet);
+
+  th,
+  td {
+    text-align: left;
+    padding: 0.3rem 0.5rem;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: middle;
+  }
+
+  th {
+    border-bottom: 2px solid var(--ink);
+    font-weight: 600;
+    padding-block: 0.5rem;
+  }
+
+  td:first-child,
+  th:first-child {
+    width: 2.25rem;
+    padding-left: 0.75rem;
+  }
+
+  td:last-child,
+  th:last-child {
+    width: 2.5rem;
+  }
+
+  tr.checked td {
+    background: #eef3fb;
+  }
+
+  .num {
+    text-align: right;
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+    width: 1%;
+  }
+}
+
+// Cells look like text on the page until you hover or type in them.
+.cell {
+  width: 100%;
+  min-width: 6rem;
+  padding: 0.3rem 0.4rem;
+  border-color: transparent;
+  background: transparent;
+
+  &:hover {
+    border-color: #c8d5e8;
+  }
+
+  &:focus-visible {
+    outline: none;
+    border-color: var(--blue);
+    background: var(--sheet);
+  }
+
+  &.remark {
+    font-style: italic;
+    font-size: 0.9rem;
+  }
+}
+
+// An unfinished row: the missing field gets a red-pen underline.
+tr.incomplete .cell[aria-invalid='true'] {
+  border-bottom: 2px dashed var(--red-pen);
+  border-radius: 6px 6px 0 0;
+}
+
+.delete {
+  font: inherit;
+  font-size: 1.25rem;
+  line-height: 1;
+  width: 2rem;
+  height: 2rem;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--ink-soft);
+  cursor: pointer;
+
+  &:hover {
+    color: var(--red-pen);
+    background: #fbe7ea;
+  }
+}
+
+.known {
+  display: inline-block;
+  margin-left: 0.4rem;
+  color: var(--green);
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+.after-table {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  margin-top: 0.75rem;
+
+  .hint {
+    margin: 0;
+    font-size: 0.85rem;
+  }
+}
+
+.added-note {
+  margin: 0.75rem 0 0;
+  color: var(--green);
+  font-size: 0.9rem;
+}
+
+.incomplete-note {
+  margin: 0.75rem 0 0;
+  color: var(--red-pen);
+  font-size: 0.9rem;
+}
+
+.reset {
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 48rem) {
+  .items .num,
+  .items .remark-col {
+    display: none;
+  }
+}

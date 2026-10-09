@@ -1,0 +1,145 @@
+@if (quiz(); as quiz) {
+  <div class="topline">
+    <a routerLink="/" class="btn btn-quiet back">{{ 'test.back' | translate }}</a>
+    <h1>{{ quiz.title }}</h1>
+  </div>
+
+  @if (settings(); as settings) {
+    <app-settings-bar
+      [settings]="settings"
+      [questionLabel]="quiz.questionLanguage"
+      [answerLabel]="quiz.answerLanguage"
+      [forceOpen]="view()?.total === 0"
+      (changed)="onSettingsChanged($event)"
+    />
+
+    @if (restartedNote()) {
+      <p class="note muted" role="status">{{ 'test.settingsChanged' | translate }}</p>
+    }
+
+    @if (view(); as v) {
+      @if (v.total === 0) {
+        <p class="banner empty">{{ 'test.noQuestions' | translate }}</p>
+      } @else if (rewardActive()) {
+        <app-flappy-break [seconds]="settings.reward.seconds" (finished)="endReward()" />
+      } @else if (v.phase === 'finished') {
+        <app-results-view
+          [score]="v.score"
+          [percent]="v.percent"
+          [scored]="v.scored"
+          [mistakes]="v.mistakes"
+          [history]="quiz.results"
+          (again)="restart()"
+          (practise)="practiseMistakes()"
+        />
+      } @else {
+        @let feedbackShown = v.phase === 'feedback' && v.feedback;
+        @let card = feedbackShown ? v.feedback!.card : v.card!;
+
+        <section class="sheet" [attr.aria-label]="'test.yourAnswer' | translate">
+          <div class="margin" aria-hidden="true"></div>
+          <div class="sheet-body">
+            @if (v.phase === 'asking' && v.feedback?.correct) {
+              <p class="last-correct" role="status">
+                <span class="tick" aria-hidden="true">✓</span>
+                {{ 'test.correct' | translate }}: {{ v.feedback!.card.prompts[0] }} = {{ v.feedback!.expected }}
+              </p>
+            }
+
+            @let side = questionLabel(quiz, card.reversed);
+            @if (side) {
+              <p class="side">{{ side }}</p>
+            }
+            <p class="prompt">{{ card.prompts[0] }}</p>
+            @if (card.prompts.length > 1) {
+              <p class="prompt-alt muted">{{ card.prompts.slice(1).join(' / ') }}</p>
+            }
+
+            @if (feedbackShown) {
+              <app-feedback-view
+                [feedback]="v.feedback!"
+                [canOverride]="settings.testType !== 'mental'"
+                (continued)="continue()"
+                (override)="markLastCorrect()"
+              />
+            } @else {
+              @switch (settings.testType) {
+                  @case ('presentation') {
+                    <p class="model-answer">{{ card.accepted.join(' / ') }}</p>
+                    @if (card.remark) {
+                      <p class="remark"><strong>{{ 'test.remark' | translate }}:</strong> {{ card.remark }}</p>
+                    }
+                    <div class="actions">
+                      <button type="button" class="btn btn-primary" appAutofocus (click)="advance()">
+                        {{ 'test.next' | translate }}
+                      </button>
+                    </div>
+                  }
+                  @case ('puzzle') {
+                    <app-puzzle-mode [card]="card" [askId]="askId()" [(answer)]="answer" (submitted)="submit($event)" (hint)="hint()" />
+                  }
+                  @case ('mcSimilar') {
+                    <app-multiple-choice-mode [options]="mcOptions()" (chosen)="choose($event)" />
+                  }
+                  @case ('mcRandom') {
+                    <app-multiple-choice-mode [options]="mcOptions()" (chosen)="choose($event)" />
+                  }
+                  @case ('mental') {
+                    <app-mental-mode [card]="card" [askId]="askId()" (assessed)="assess($event)" />
+                  }
+                  @case ('englishTeacher') {
+                    <app-english-teacher-mode
+                      [card]="card"
+                      [match]="settings.match"
+                      [(answer)]="answer"
+                      (submitted)="submit($event)"
+                      (failed)="failKeystroke($event)"
+                    />
+                  }
+                  @default {
+                    <app-open-answer-mode
+                      [card]="card"
+                      [dictation]="settings.testType === 'dictation'"
+                      [(answer)]="answer"
+                      (submitted)="submit($event)"
+                      (hint)="hint()"
+                    />
+                  }
+              }
+            }
+          </div>
+        </section>
+
+        <footer class="status">
+          <div class="progress muted">
+            @switch (v.repetition) {
+              @case ('interval') {
+                {{ 'test.progressKnown' | translate: { known: v.known, total: v.total } }}
+              }
+              @case ('repeatList') {
+                {{ 'test.progressRound' | translate: { round: v.round } }}
+              }
+              @case ('untilAllCorrect') {
+                {{ 'test.progressRound' | translate: { round: v.round } }},
+                {{ 'test.progressRemaining' | translate: { remaining: v.remaining } }}
+              }
+              @default {
+                {{ 'test.progressRemaining' | translate: { remaining: v.remaining } }}
+              }
+            }
+          </div>
+          <button type="button" class="btn btn-quiet" (click)="stop()">{{ 'test.stop' | translate }}</button>
+          @if (v.scored) {
+            <div class="score" aria-live="polite">
+              <span class="score-percent">{{ v.percent }}%</span>
+              <span class="score-detail">
+                {{ 'test.scoreLine' | translate: { correct: v.score.correct, asked: v.score.asked } }}<br />
+                {{ 'test.bonusLine' | translate: { bonus: v.score.bonus } }}
+              </span>
+            </div>
+          }
+        </footer>
+      }
+    }
+  }
+}
