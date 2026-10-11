@@ -6,10 +6,11 @@ import { downloadJson } from '../../core/services/download';
 import { QuizStore } from '../../core/services/quiz-store.service';
 import { InfoTip } from '../../shared/info-tip';
 import { UploadZone } from '../upload/upload-zone';
+import { ShareDialog } from './share-dialog';
 
 @Component({
   selector: 'app-library-page',
-  imports: [RouterLink, TranslatePipe, UploadZone, InfoTip],
+  imports: [RouterLink, TranslatePipe, UploadZone, InfoTip, ShareDialog],
   templateUrl: './library-page.html',
   styleUrl: './library-page.scss',
 })

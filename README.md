@@ -84,6 +84,15 @@ Every `.json` file in `quizzes/` is offered under *Choose a built-in quiz* on th
 
 Rows without both a question and an answer are kept, but left out of tests and exports until you complete them.
 
+## Sharing a quiz
+
+*Share* in the quiz list makes a link that contains the quiz itself, to open it on another device or send it to someone. Opening the link shows the quiz with an *Add to my quizzes* button; nothing is added without asking.
+
+- The link holds the title, column names, questions, answers and notes. Progress (`stats`, `checked`, `results`) and unfinished rows are left out.
+- The data is the JSON export format, deflate-compressed and base64url-encoded, behind `#/share/`. The part after `#` is never sent to a server, so a shared quiz doesn't pass through GitHub Pages.
+- A list of 180 questions gives a link of about 3,000 characters. Above 8,000 characters the dialog warns that some apps may cut the link off; *Export JSON* is more reliable then.
+- The code starts with a format version (`1`), so the encoding can change later without breaking old links. See `src/app/core/services/share-link.ts`.
+
 ## Test settings
 
 The test screen has these settings:

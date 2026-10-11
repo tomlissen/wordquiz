@@ -15,7 +15,8 @@
     "newQuiz": "New quiz",
     "knownSummary": "{{total}} questions: {{known}} known, {{unknown}} not yet",
     "knownInfoLabel": "What does known mean?",
-    "knownInfo": "A question is known once you have answered it correctly 4 times in a row. One wrong answer and it counts as not known again. With the question list \"Leave out questions you know\" you practise only the rest."
+    "knownInfo": "A question is known once you have answered it correctly 4 times in a row. One wrong answer and it counts as not known again. With the question list \"Leave out questions you know\" you practise only the rest.",
+    "share": "Share"
   },
   "upload": {
     "drop": "Drop a .json file here",
@@ -235,5 +236,27 @@
     "close": "Close",
     "empty": "There are no built-in quizzes yet.",
     "loadError": "The list of built-in quizzes couldn't be loaded. Start the app with npm start, which generates it."
+  },
+  "share": {
+    "title": "Share \"{{title}}\"",
+    "help": "Anyone who opens this link can add the quiz on their own device. The link contains the questions themselves; your progress is not included.",
+    "linkLabel": "Share link",
+    "making": "Making the link…",
+    "copy": "Copy link",
+    "copied": "Copied",
+    "nativeShare": "Share…",
+    "close": "Close",
+    "long": "This link is very long, and some apps may cut it off. For a quiz this big, Export JSON is more reliable."
+  },
+  "shareImport": {
+    "title": "Shared quiz",
+    "loading": "Opening the shared quiz…",
+    "count": "{{count}} questions",
+    "more": "And {{count}} more.",
+    "exists": "You already have a quiz with this title. Adding it makes a second copy.",
+    "add": "Add to my quizzes",
+    "cancel": "Cancel",
+    "broken": "This link is incomplete or damaged, so the quiz can't be opened. Ask for a new link.",
+    "toLibrary": "Back to quizzes"
   }
 }

@@ -1,0 +1,32 @@
+<dialog #dialog aria-labelledby="share-title" (click)="onDialogClick($event)">
+  <div class="content">
+    <h2 id="share-title">{{ 'share.title' | translate: { title: title() } }}</h2>
+    <p class="help">{{ 'share.help' | translate }}</p>
+
+    <label class="visually-hidden" for="share-link">{{ 'share.linkLabel' | translate }}</label>
+    <input
+      #link
+      id="share-link"
+      type="text"
+      readonly
+      [value]="url()"
+      [placeholder]="'share.making' | translate"
+      (focus)="link.select()"
+    />
+    @if (url().length > longLink) {
+      <p class="long" role="status">{{ 'share.long' | translate }}</p>
+    }
+
+    <div class="actions">
+      <button type="button" class="btn btn-primary" [disabled]="!url()" (click)="copy()">
+        {{ (copied() ? 'share.copied' : 'share.copy') | translate }}
+      </button>
+      @if (canShareNatively) {
+        <button type="button" class="btn" [disabled]="!url()" (click)="shareNatively()">
+          {{ 'share.nativeShare' | translate }}
+        </button>
+      }
+      <button type="button" class="btn btn-quiet" (click)="close()">{{ 'share.close' | translate }}</button>
+    </div>
+  </div>
+</dialog>

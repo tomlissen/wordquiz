@@ -15,7 +15,8 @@
     "newQuiz": "Nieuwe overhoring",
     "knownSummary": "{{total}} vragen: {{known}} gekend, {{unknown}} nog niet",
     "knownInfoLabel": "Wat betekent gekend?",
-    "knownInfo": "Een vraag is gekend als je hem 4 keer achter elkaar goed hebt beantwoord. Eén fout antwoord en hij telt weer als nog niet gekend. Met de vragenlijst \"Vragen die je al kent weglaten\" oefen je alleen de rest."
+    "knownInfo": "Een vraag is gekend als je hem 4 keer achter elkaar goed hebt beantwoord. Eén fout antwoord en hij telt weer als nog niet gekend. Met de vragenlijst \"Vragen die je al kent weglaten\" oefen je alleen de rest.",
+    "share": "Delen"
   },
   "upload": {
     "drop": "Sleep een .json-bestand hierheen",
@@ -235,5 +236,27 @@
     "close": "Sluiten",
     "empty": "Er zijn nog geen ingebouwde overhoringen.",
     "loadError": "De lijst met ingebouwde overhoringen kon niet geladen worden. Start de app met npm start; dat maakt de lijst aan."
+  },
+  "share": {
+    "title": "\"{{title}}\" delen",
+    "help": "Wie deze link opent, kan de overhoring op zijn eigen apparaat toevoegen. De vragen zitten in de link zelf; je voortgang gaat niet mee.",
+    "linkLabel": "Deellink",
+    "making": "Link maken…",
+    "copy": "Kopieer link",
+    "copied": "Gekopieerd",
+    "nativeShare": "Delen…",
+    "close": "Sluiten",
+    "long": "Deze link is erg lang en sommige apps kunnen hem afknippen. Voor zo'n grote overhoring is Exporteer JSON betrouwbaarder."
+  },
+  "shareImport": {
+    "title": "Gedeelde overhoring",
+    "loading": "Gedeelde overhoring openen…",
+    "count": "{{count}} vragen",
+    "more": "En nog {{count}}.",
+    "exists": "Je hebt al een overhoring met deze titel. Toevoegen maakt een tweede exemplaar.",
+    "add": "Toevoegen aan mijn overhoringen",
+    "cancel": "Annuleren",
+    "broken": "Deze link is onvolledig of beschadigd, dus de overhoring kan niet geopend worden. Vraag om een nieuwe link.",
+    "toLibrary": "Terug naar overhoringen"
   }
 }

@@ -1,0 +1,51 @@
+@let s = state();
+<section class="share">
+  @switch (s.kind) {
+    @case ('loading') {
+      <p class="muted">{{ 'shareImport.loading' | translate }}</p>
+    }
+    @case ('broken') {
+      <h1>{{ 'shareImport.title' | translate }}</h1>
+      <p class="banner banner-error" role="alert">{{ 'shareImport.broken' | translate }}</p>
+      <a routerLink="/" class="btn">{{ 'shareImport.toLibrary' | translate }}</a>
+    }
+    @case ('ready') {
+      @if (s.kind === 'ready') {
+        @let quiz = s.quiz;
+        <p class="eyebrow muted">{{ 'shareImport.title' | translate }}</p>
+        <h1>{{ quiz.title }}</h1>
+        <p class="muted">
+          {{ 'shareImport.count' | translate: { count: quiz.items.length } }}
+          @if (quiz.questionLanguage && quiz.answerLanguage) {
+            ({{ quiz.questionLanguage }} → {{ quiz.answerLanguage }})
+          }
+        </p>
+
+        <table class="preview">
+          <tbody>
+            @for (item of quiz.items.slice(0, previewCount); track item.id) {
+              <tr>
+                <td>{{ item.questions.join(' / ') }}</td>
+                <td>{{ item.answers.join(' / ') }}</td>
+              </tr>
+            }
+          </tbody>
+        </table>
+        @if (quiz.items.length > previewCount) {
+          <p class="more muted">{{ 'shareImport.more' | translate: { count: quiz.items.length - previewCount } }}</p>
+        }
+
+        @if (alreadyHave()) {
+          <p class="note">{{ 'shareImport.exists' | translate }}</p>
+        }
+
+        <div class="actions">
+          <button type="button" class="btn btn-primary" appAutofocus (click)="add(quiz)">
+            {{ 'shareImport.add' | translate }}
+          </button>
+          <a routerLink="/" class="btn btn-quiet">{{ 'shareImport.cancel' | translate }}</a>
+        </div>
+      }
+    }
+  }
+</section>

@@ -29,6 +29,7 @@
           <div class="quiz-actions">
             <a class="btn btn-primary" [routerLink]="['/quiz', quiz.id, 'test']">{{ 'library.test' | translate }}</a>
             <a class="btn" [routerLink]="['/quiz', quiz.id]">{{ 'library.viewItems' | translate }}</a>
+            <button type="button" class="btn btn-quiet" (click)="shareDialog.open(quiz)">{{ 'library.share' | translate }}</button>
             <button type="button" class="btn btn-quiet" (click)="export(quiz)">{{ 'library.export' | translate }}</button>
             <button type="button" class="btn btn-quiet btn-danger" (click)="remove(quiz)">
               {{ 'library.delete' | translate }}
@@ -39,3 +40,5 @@
     </ul>
   }
 </section>
+
+<app-share-dialog #shareDialog />
