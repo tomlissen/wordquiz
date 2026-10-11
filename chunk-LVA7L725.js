@@ -1,0 +1,1 @@
+import{j as r,t as c,w as n,y as i}from"./chunk-WKWR3AYH.js";var o=class e{constructor(){let t=r(c);n(()=>t.nativeElement.focus({preventScroll:!0}))}static \u0275fac=function(s){return new(s||e)};static \u0275dir=i({type:e,selectors:[["","appAutofocus",""]]})};export{o as a};
