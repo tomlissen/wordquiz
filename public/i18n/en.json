@@ -215,7 +215,13 @@
     "timeUp": "Time's up!",
     "back": "Back to the quiz",
     "skip": "Skip",
-    "canvasLabel": "Flappy Bird game. Press Space, the up arrow, or tap to flap."
+    "canvasLabel": "Flappy Bird game. Press Space, the up arrow, or tap to flap.",
+    "scoreLabel": "Score",
+    "medal": {
+      "bronze": "Bronze medal",
+      "silver": "Silver medal",
+      "gold": "Gold medal"
+    }
   },
   "bulk": {
     "title": "Add several questions",

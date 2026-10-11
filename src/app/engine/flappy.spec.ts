@@ -1,12 +1,14 @@
 import {
   BIRD_RADIUS,
   BIRD_X,
-  FIELD,
   FlappyGame,
-  GAP_MARGIN,
+  MAX_LEVEL,
   MAX_STEP_MS,
   PIPE_GAP,
+  PIPE_SPEED,
   PIPE_WIDTH,
+  PLAY_HEIGHT,
+  SPEED_UP,
 } from './flappy';
 import { seededRng } from './random';
 
@@ -36,7 +38,7 @@ describe('FlappyGame', () => {
     const floor = new FlappyGame(seededRng(1));
     for (let i = 0; i < 200 && !floor.crashed; i++) floor.step(16);
     expect(floor.crashed).toBe(true);
-    expect(floor.y + BIRD_RADIUS).toBeGreaterThanOrEqual(FIELD.height);
+    expect(floor.y + BIRD_RADIUS).toBeGreaterThanOrEqual(PLAY_HEIGHT);
 
     const ceiling = new FlappyGame(seededRng(1));
     for (let i = 0; i < 200 && !ceiling.crashed; i++) {
@@ -49,7 +51,7 @@ describe('FlappyGame', () => {
 
   it('crashes into a pipe but flies through the gap', () => {
     const wall = new FlappyGame(() => 0); // gap at the very top
-    fly(wall, 10_000, () => FIELD.height - 40); // hug the bottom
+    fly(wall, 10_000, () => PLAY_HEIGHT - 40); // hug the bottom
     expect(wall.crashed).toBe(true);
     expect(wall.score).toBe(0);
 
@@ -57,7 +59,7 @@ describe('FlappyGame', () => {
     // Aim for the middle of the gap of the next pipe that isn't behind the bird yet.
     const nextGapCenter = () => {
       const next = pilot.pipes.find((p) => p.x + PIPE_WIDTH >= BIRD_X - BIRD_RADIUS);
-      return next ? next.gapY + PIPE_GAP / 2 + 12 : FIELD.height / 2;
+      return next ? next.gapY + next.gap / 2 + 12 : PLAY_HEIGHT / 2;
     };
     fly(pilot, 10_000, nextGapCenter);
     expect(pilot.crashed).toBe(false);
@@ -66,12 +68,25 @@ describe('FlappyGame', () => {
 
   it('scores exactly one point per pipe passed', () => {
     const game = new FlappyGame(() => 0.5);
-    const gapCenter = GAP_MARGIN + 0.5 * (FIELD.height - 2 * GAP_MARGIN - PIPE_GAP) + PIPE_GAP / 2;
+    const gapCenter = PLAY_HEIGHT / 2; // centred gaps stay centred as they shrink
     fly(game, 4_000, () => gapCenter + 12);
     expect(game.crashed).toBe(false);
     const passed = game.score;
     expect(passed).toBeGreaterThan(0);
     expect(game.pipes.filter((p) => p.passed).length).toBeLessThanOrEqual(passed);
+  });
+
+  it('gets faster with narrower gaps as the score goes up, up to a limit', () => {
+    const game = new FlappyGame(() => 0.5);
+    expect(game.speed).toBe(PIPE_SPEED);
+    fly(game, 6_000, () => PLAY_HEIGHT / 2 + 12); // long enough for a pipe to appear after a point
+    expect(game.crashed).toBe(false);
+    expect(game.score).toBeGreaterThan(1);
+    expect(game.speed).toBeGreaterThan(PIPE_SPEED);
+    expect(game.pipes.at(-1)!.gap).toBeLessThan(PIPE_GAP);
+
+    game.score = 100;
+    expect(game.speed).toBeCloseTo(PIPE_SPEED * (1 + MAX_LEVEL * SPEED_UP));
   });
 
   it('gives the same gaps for the same seed', () => {

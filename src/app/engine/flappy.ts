@@ -2,6 +2,10 @@ import { Rng } from './random';
 
 /** Flappy Bird in logical units on a fixed field; drawing and timing live in the component. */
 export const FIELD = { width: 480, height: 320 };
+/** The strip of ground at the bottom; the bird crashes on top of it. */
+export const GROUND_HEIGHT = 44;
+/** The height the bird can fly in, from the top of the field to the ground. */
+export const PLAY_HEIGHT = FIELD.height - GROUND_HEIGHT;
 
 export const BIRD_X = 110;
 export const BIRD_RADIUS = 11;
@@ -11,9 +15,15 @@ export const FLAP_VELOCITY = -390;
 export const MAX_FALL_SPEED = 600;
 
 export const PIPE_WIDTH = 52;
+/** Gap and speed at the start; both get harder with every point, up to MAX_LEVEL points. */
 export const PIPE_GAP = 112;
 export const PIPE_SPEED = 140;
-export const PIPE_INTERVAL_MS = 1500;
+/** Pipes stay this far apart, so faster pipes also come more often. */
+export const PIPE_SPACING = 210;
+export const MAX_LEVEL = 12;
+/** Per point: the gap shrinks by this many px and the speed goes up by this fraction. */
+export const GAP_SHRINK = 2;
+export const SPEED_UP = 0.04;
 /** Keeps gaps away from the very top and bottom. */
 export const GAP_MARGIN = 40;
 
@@ -24,17 +34,20 @@ export interface Pipe {
   x: number;
   /** Top of the gap. */
   gapY: number;
+  /** Height of the gap, fixed when the pipe appears. */
+  gap: number;
   passed: boolean;
 }
 
 export class FlappyGame {
-  y = FIELD.height / 2;
+  y = PLAY_HEIGHT / 2;
   vy = 0;
   pipes: Pipe[] = [];
   score = 0;
   crashed = false;
   elapsedMs = 0;
-  private sinceSpawnMs = 0;
+  /** Distance the pipes have moved since the last one appeared. */
+  private sinceSpawn = 0;
 
   constructor(private readonly rng: Rng) {}
 
@@ -55,12 +68,13 @@ export class FlappyGame {
     this.vy = Math.min(this.vy + GRAVITY * dt, MAX_FALL_SPEED);
     this.y += this.vy * dt;
 
-    this.sinceSpawnMs += dtMsCapped;
-    if (this.pipes.length === 0 || this.sinceSpawnMs >= PIPE_INTERVAL_MS) {
+    const move = this.speed * dt;
+    this.sinceSpawn += move;
+    if (this.pipes.length === 0 || this.sinceSpawn >= PIPE_SPACING) {
       this.spawnPipe();
     }
     for (const pipe of this.pipes) {
-      pipe.x -= PIPE_SPEED * dt;
+      pipe.x -= move;
       if (!pipe.passed && pipe.x + PIPE_WIDTH < BIRD_X - BIRD_RADIUS) {
         pipe.passed = true;
         this.score++;
@@ -73,14 +87,24 @@ export class FlappyGame {
     }
   }
 
+  /** How far the pipes move per second; goes up with the score. */
+  get speed(): number {
+    return PIPE_SPEED * (1 + this.level * SPEED_UP);
+  }
+
+  private get level(): number {
+    return Math.min(this.score, MAX_LEVEL);
+  }
+
   private spawnPipe(): void {
-    this.sinceSpawnMs = 0;
-    const range = FIELD.height - 2 * GAP_MARGIN - PIPE_GAP;
-    this.pipes.push({ x: FIELD.width, gapY: GAP_MARGIN + this.rng() * range, passed: false });
+    this.sinceSpawn = 0;
+    const gap = PIPE_GAP - this.level * GAP_SHRINK;
+    const range = PLAY_HEIGHT - 2 * GAP_MARGIN - gap;
+    this.pipes.push({ x: FIELD.width, gapY: GAP_MARGIN + this.rng() * range, gap, passed: false });
   }
 
   private hitsBounds(): boolean {
-    return this.y - BIRD_RADIUS <= 0 || this.y + BIRD_RADIUS >= FIELD.height;
+    return this.y - BIRD_RADIUS <= 0 || this.y + BIRD_RADIUS >= PLAY_HEIGHT;
   }
 
   /** Circle against the two pipe rectangles. */
@@ -91,6 +115,6 @@ export class FlappyGame {
       return false;
     }
     const reach = Math.sqrt(BIRD_RADIUS * BIRD_RADIUS - dx * dx);
-    return this.y - reach < pipe.gapY || this.y + reach > pipe.gapY + PIPE_GAP;
+    return this.y - reach < pipe.gapY || this.y + reach > pipe.gapY + pipe.gap;
   }
 }

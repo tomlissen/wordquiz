@@ -215,7 +215,13 @@
     "timeUp": "De tijd is om!",
     "back": "Terug naar de overhoring",
     "skip": "Overslaan",
-    "canvasLabel": "Flappy Bird-spel. Druk op spatie, pijl omhoog of tik om te fladderen."
+    "canvasLabel": "Flappy Bird-spel. Druk op spatie, pijl omhoog of tik om te fladderen.",
+    "scoreLabel": "Score",
+    "medal": {
+      "bronze": "Bronzen medaille",
+      "silver": "Zilveren medaille",
+      "gold": "Gouden medaille"
+    }
   },
   "bulk": {
     "title": "Meerdere vragen toevoegen",

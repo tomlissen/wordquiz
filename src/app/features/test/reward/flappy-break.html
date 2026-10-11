@@ -27,8 +27,17 @@
           <p class="verdict" [class.crashed]="endReason() === 'crashed'">
             {{ (endReason() === 'crashed' ? 'game.crashed' : 'game.timeUp') | translate }}
           </p>
-          <p class="final">{{ 'game.score' | translate: { score: score() } }}</p>
-          <p class="best muted">
+          <div class="result">
+            @if (medal(); as m) {
+              <span [class]="'medal ' + m" role="img" [attr.aria-label]="'game.medal.' + m | translate"></span>
+            }
+            <p class="final">
+              <span class="final-label" aria-hidden="true">{{ 'game.scoreLabel' | translate }}</span>
+              <span class="final-score" aria-hidden="true">{{ shownScore() }}</span>
+              <span class="visually-hidden">{{ 'game.score' | translate: { score: score() } }}</span>
+            </p>
+          </div>
+          <p class="best">
             @if (newBest()) {
               {{ 'game.newBest' | translate }}
             } @else {
