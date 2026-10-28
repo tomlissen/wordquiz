@@ -24,6 +24,7 @@
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
+            "externalDependencies": ["fs", "path", "crypto"],
             "assets": [
               {
                 "glob": "**/*",
@@ -65,6 +66,9 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
+          "options": {
+            "prebundle": { "exclude": ["@mintplex-labs/piper-tts-web"] }
+          },
           "configurations": {
             "production": {
               "buildTarget": "word-quizzer:build:production"
