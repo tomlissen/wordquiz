@@ -58,6 +58,8 @@ export interface TestSettings {
   repetition: Repetition;
   match: MatchOptions;
   reward: RewardSettings;
+  /** Read each question aloud (text-to-speech). */
+  speak: boolean;
 }
 
 export const QUESTION_SELECTIONS: QuestionSelection[] = [
@@ -89,5 +91,6 @@ export function defaultSettings(): TestSettings {
       ignoreAccents: false,
     },
     reward: { enabled: false, seconds: 20 },
+    speak: false,
   };
 }

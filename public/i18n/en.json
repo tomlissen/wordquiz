@@ -143,6 +143,8 @@
     "rewardToggle": "Flappy Bird",
     "rewardSeconds": "Maximum seconds per break",
     "secondsUnit": "sec",
+    "speak": "Speech",
+    "speakToggle": "Read question aloud",
     "rewardHelp": "Every {{every}} correct answers: a Flappy Bird break of up to {{seconds}} seconds.",
     "title": "Test settings"
   },
@@ -151,6 +153,7 @@
     "noQuestions": "No questions match this question list. Choose another question list.",
     "yourAnswer": "Your answer",
     "check": "Check",
+    "replay": "Play question again",
     "next": "Next",
     "hint": "Hint",
     "hintCost": "costs a bonus point",

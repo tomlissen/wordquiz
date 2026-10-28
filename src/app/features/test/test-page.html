@@ -50,7 +50,18 @@
             @if (side) {
               <p class="side">{{ side }}</p>
             }
-            <p class="prompt">{{ card.prompts[0] }}</p>
+            <p class="prompt">
+              {{ card.prompts[0] }}
+              @if (settings.speak) {
+                <button
+                  type="button"
+                  class="btn btn-quiet replay"
+                  [attr.aria-label]="'test.replay' | translate"
+                  [title]="'test.replay' | translate"
+                  (click)="replay(card.prompts[0])"
+                >🔊</button>
+              }
+            </p>
             @if (card.prompts.length > 1) {
               <p class="prompt-alt muted">{{ card.prompts.slice(1).join(' / ') }}</p>
             }

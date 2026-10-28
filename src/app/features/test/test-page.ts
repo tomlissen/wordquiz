@@ -5,6 +5,7 @@ import { Card, isComplete, Quiz } from '../../core/model/quiz.model';
 import { TestSettings } from '../../core/model/settings.model';
 import { QuizStore } from '../../core/services/quiz-store.service';
 import { SettingsService } from '../../core/services/settings.service';
+import { speak, stopSpeaking } from '../../core/services/speech';
 import { multipleChoiceOptions } from '../../engine/distractors';
 import { rewardsDue } from '../../engine/reward';
 import { scorePercent } from '../../engine/scoring';
@@ -220,6 +221,7 @@ export class TestPage {
     this.restartedNote.set(false);
     this.answer.set('');
     this.askId.update((n) => n + 1);
+    this.speakQuestion();
     this.bump();
   }
 
@@ -229,6 +231,9 @@ export class TestPage {
     if (s?.phase === 'asking') {
       this.answer.set('');
       this.askId.update((n) => n + 1);
+      this.speakQuestion();
+    } else if (s?.phase === 'finished') {
+      stopSpeaking();
     }
     this.restartedNote.set(false);
     if (s?.phase === 'finished') {
@@ -236,6 +241,17 @@ export class TestPage {
     }
     this.checkReward();
     this.bump();
+  }
+
+  private speakQuestion(): void {
+    const prompt = this.session?.current?.prompts[0];
+    if (this.settings()?.speak && this.session?.phase === 'asking' && prompt) {
+      speak(prompt);
+    }
+  }
+
+  protected replay(text: string): void {
+    speak(text);
   }
 
   protected endReward(): void {
