@@ -143,6 +143,8 @@
     "rewardToggle": "Flappy Bird",
     "rewardSeconds": "Maximaal aantal seconden per pauze",
     "secondsUnit": "sec",
+    "speak": "Spraak",
+    "speakToggle": "Vraag voorlezen",
     "rewardHelp": "Elke {{every}} goede antwoorden: een Flappy Bird-pauze van maximaal {{seconds}} seconden.",
     "title": "Overhoorinstellingen"
   },
@@ -151,6 +153,7 @@
     "noQuestions": "Geen vragen in deze vragenlijst. Kies een andere vragenlijst.",
     "yourAnswer": "Je antwoord",
     "check": "Controleer",
+    "replay": "Vraag opnieuw afspelen",
     "next": "Volgende",
     "hint": "Hint",
     "hintCost": "kost een bonuspunt",
